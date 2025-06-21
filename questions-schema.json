@@ -4,6 +4,12 @@
   "description": "データベーススペシャリスト試験問題集のJSONスキーマ定義",
   "type": "object",
   "properties": {
+    "title": {
+      "type": "string",
+      "description": "問題集全体のタイトル",
+      "minLength": 1,
+      "examples": ["データベーススペシャリスト試験 問題集"]
+    },
     "sections": {
       "type": "array",
       "description": "問題のセクション（分野）一覧",
@@ -13,7 +19,7 @@
       "minItems": 1
     }
   },
-  "required": ["sections"],
+  "required": ["title", "sections"],
   "additionalProperties": false,
   
   "definitions": {

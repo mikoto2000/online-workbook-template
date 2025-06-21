@@ -287,8 +287,17 @@
 
         // ナビゲーションとコンテンツを生成
         function renderContent() {
+            updateTitle();
             renderNavigation();
             renderSections();
+        }
+
+        // タイトルを動的に設定
+        function updateTitle() {
+            if (questionsData && questionsData.title) {
+                document.title = questionsData.title;
+                document.querySelector('h1').textContent = questionsData.title;
+            }
         }
 
         // ナビゲーションメニューを生成
