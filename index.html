@@ -211,6 +211,11 @@
         .disclaimer li {
             margin: 4px 0;
         }
+        .question.answered {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+        }
     </style>
 </head>
 <body>
@@ -308,7 +313,7 @@
             
             if (questionType === 'essay') {
                 questionContent = `
-                    <div class="question essay">
+                    <div class="question essay" data-question-id="${question.id}">
                         <div class="question-number">${question.number}<span class="question-type">${typeLabel}</span></div>
                         <p>${question.question}</p>
                         <textarea class="essay-input" data-question="${question.id}" placeholder="こちらに回答を記述してください..."></textarea>
@@ -324,7 +329,7 @@
                 const questionClass = questionType === 'multiple_choice' ? 'question multiple-choice' : 'question';
                 
                 questionContent = `
-                    <div class="${questionClass}">
+                    <div class="${questionClass}" data-question-id="${question.id}">
                         <div class="question-number">${question.number}<span class="question-type">${typeLabel}</span></div>
                         <p>${question.question}</p>
                         <div class="choices">
@@ -405,6 +410,7 @@
             
             localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
             updateSaveStatus();
+            updateAnsweredQuestions();
         }
         
         // 保存された回答を取得
@@ -456,6 +462,7 @@
                 });
                 
                 updateSaveStatus();
+                updateAnsweredQuestions();
                 alert('すべての回答をクリアしました。');
             }
         }
@@ -526,6 +533,35 @@
             });
         }
         
+        // 問題が回答済みかチェック
+        function isQuestionAnswered(questionId) {
+            const answers = getStoredAnswers();
+            const answer = answers[questionId];
+            
+            if (Array.isArray(answer)) {
+                return answer.length > 0;
+            }
+            return answer && answer.trim() !== '';
+        }
+        
+        // 回答済み問題の視覚的表示を更新
+        function updateAnsweredQuestions() {
+            if (!questionsData) return;
+            
+            questionsData.sections.forEach(section => {
+                section.questions.forEach(question => {
+                    const questionElement = document.querySelector(`[data-question-id="${question.id}"]`);
+                    if (questionElement) {
+                        if (isQuestionAnswered(question.id)) {
+                            questionElement.classList.add('answered');
+                        } else {
+                            questionElement.classList.remove('answered');
+                        }
+                    }
+                });
+            });
+        }
+        
         // 問題レンダリング後に文字数カウンターを設定
         function renderSections() {
             const content = document.getElementById('content');
@@ -544,6 +580,7 @@
                 setupEssayCounters();
                 restoreAnswers();
                 updateSaveStatus();
+                updateAnsweredQuestions();
             }, 100);
         }
     </script>
