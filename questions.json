@@ -5,8 +5,6 @@
       "title": "データベース設計",
       "questions": [
         {
-          "id": "q1-1",
-          "number": "問題 1-1",
           "type": "single_choice",
           "question": "E-R 図で「1 対多」の多側を表す適切な表記は次のうちどれか。",
           "choices": [
@@ -19,8 +17,6 @@
           "explanation": "クロウズフット記法では多側（0..*, 1..* など）に三又の足形を描くことで多重度を示す。"
         },
         {
-          "id": "q1-2",
-          "number": "問題 1-2",
           "type": "single_choice",
           "question": "物理設計でパーティションキーを選定する主な目的として最も適切なものはどれか。",
           "choices": [
@@ -33,8 +29,6 @@
           "explanation": "パーティションキーはデータ配置を物理的に分割し、I/O 並列性とキャッシュ局所性を高めるために選定する。"
         },
         {
-          "id": "q1-3",
-          "number": "問題 1-3",
           "type": "single_choice",
           "question": "外部キー制約を論理設計段階で定義しておく主な利点はどれか。",
           "choices": [
@@ -47,8 +41,6 @@
           "explanation": "外部キー制約は RDBMS が参照整合性を保証するため、設計段階で定義することで不整合データの混入を防止できる。"
         },
         {
-          "id": "q1-4",
-          "number": "問題 1-4",
           "type": "multiple_choice",
           "question": "概念設計においてエンティティを抽出する際の代表的な手法として適切なものをすべて選べ。",
           "choices": [
@@ -62,8 +54,6 @@
           "explanation": "名詞抽出法と CRUD 行列法は実務で広く用いられる。時系列分析はイベント抽出、トリガは運用設計寄りでエンティティ抽出手法とは異なる。"
         },
         {
-          "id": "q1-5",
-          "number": "問題 1-5",
           "type": "essay",
           "question": "概念設計と論理設計の違いを 300 字以内で説明し、両者の成果物が後続工程に与える影響について述べよ。",
           "correct": "",
@@ -76,8 +66,6 @@
       "title": "SQL",
       "questions": [
         {
-          "id": "q2-1",
-          "number": "問題 2-1",
           "type": "single_choice",
           "question": "ウィンドウ関数 ROW_NUMBER() の主な用途として正しいものはどれか。",
           "choices": [
@@ -90,8 +78,6 @@
           "explanation": "ROW_NUMBER() は PARTITION BY と ORDER BY で区切ったパーティション内に連番を付与するウィンドウ関数である。"
         },
         {
-          "id": "q2-2",
-          "number": "問題 2-2",
           "type": "single_choice",
           "question": "PostgreSQL などで JSON 列からキー \"price\" を数値として抽出する SQL 例として適切なのはどれか。",
           "choices": [
@@ -104,8 +90,6 @@
           "explanation": "->> でテキスト抽出後にキャスト ( ... )::numeric する。選択肢 b はキャスト位置が誤り。"
         },
         {
-          "id": "q2-3",
-          "number": "問題 2-3",
           "type": "single_choice",
           "question": "SQL92 で定義された外部結合のうち FULL OUTER JOIN の結果について正しい説明はどれか。",
           "choices": [
@@ -118,8 +102,6 @@
           "explanation": "FULL OUTER JOIN は LEFT と RIGHT の和集合であり、どちらにも一致しない側の列は NULL を返す。"
         },
         {
-          "id": "q2-4",
-          "number": "問題 2-4",
           "type": "multiple_choice",
           "question": "SQL 標準で定義されるトランザクション分離レベルに含まれるものをすべて選べ。",
           "choices": [
@@ -133,8 +115,6 @@
           "explanation": "SQL 標準は 4 段階 (RU, RC, RR, S) を規定し、LINEARIZABLE は分散 DB で用いられる概念で標準には含まれない。"
         },
         {
-          "id": "q2-5",
-          "number": "問題 2-5",
           "type": "essay",
           "question": "WITH 句 (共通テーブル式) を用いた再帰クエリの仕組みと実用例について 300 字以内で説明せよ。",
           "correct": "",
@@ -147,8 +127,6 @@
       "title": "正規化・データモデリング",
       "questions": [
         {
-          "id": "q3-1",
-          "number": "問題 3-1",
           "type": "single_choice",
           "question": "第 3 正規形 (3NF) が満たすべき条件として正しいものはどれか。",
           "choices": [
@@ -161,8 +139,6 @@
           "explanation": "3NF は非キー属性が候補キーに完全関数従属し、かつ非キー属性間に推移従属がない状態を指す。"
         },
         {
-          "id": "q3-2",
-          "number": "問題 3-2",
           "type": "single_choice",
           "question": "BCNF への変換過程で起こり得る主キーの変化に関する説明として正しいものはどれか。",
           "choices": [
@@ -175,8 +151,6 @@
           "explanation": "BCNF 分解では決定因子を持つ属性群が分離されるため、元の主キーが複数テーブルに分散する場合がある。"
         },
         {
-          "id": "q3-3",
-          "number": "問題 3-3",
           "type": "single_choice",
           "question": "関数従属性 X→Y が成立する場合の Armstrong 公理に基づく推論として誤っているものはどれか。",
           "choices": [
@@ -189,8 +163,6 @@
           "explanation": "分解律により X→YZ なら X→Z, X→Y が導けるため「導けない」は誤り。"
         },
         {
-          "id": "q3-4",
-          "number": "問題 3-4",
           "type": "multiple_choice",
           "question": "次のうち、第 1 正規形 (1NF) を満たしていない状態の例として該当するものをすべて選べ。",
           "choices": [
@@ -204,8 +176,6 @@
           "explanation": "1NF では列が原子的である必要があり、配列やカンマ区切りで複数値を格納するのは違反。"
         },
         {
-          "id": "q3-5",
-          "number": "問題 3-5",
           "type": "essay",
           "question": "データウェアハウス設計で 3NF ではなくスター・スキーマが採用される理由と利点を具体例を交えて述べよ (300 字以内)。",
           "correct": "",
@@ -218,8 +188,6 @@
       "title": "性能・チューニング",
       "questions": [
         {
-          "id": "q4-1",
-          "number": "問題 4-1",
           "type": "single_choice",
           "question": "B+ 木インデックスにおいてリーフノードのみを順次走査する操作はどの SQL 句と最も関係が深いか。",
           "choices": [
@@ -232,8 +200,6 @@
           "explanation": "B+ 木はリーフノードが順序付き連結リストになっているため ORDER BY の実装で効率的な範囲走査が可能。"
         },
         {
-          "id": "q4-2",
-          "number": "問題 4-2",
           "type": "single_choice",
           "question": "実行計画で Nested Loop Join が Hash Join より有利になる典型的な条件はどれか。",
           "choices": [
@@ -246,8 +212,6 @@
           "explanation": "Nested Loop は外側が小さく内側にインデックスがある場合に最少 I/O で結合できる。"
         },
         {
-          "id": "q4-3",
-          "number": "問題 4-3",
           "type": "single_choice",
           "question": "列指向ストレージエンジンが行指向よりも優れる典型的ワークロードはどれか。",
           "choices": [
@@ -260,8 +224,6 @@
           "explanation": "列指向は必要列のみ連続的に読み込めるため集計・分析系 (OLAP) に特に効果を発揮する。"
         },
         {
-          "id": "q4-4",
-          "number": "問題 4-4",
           "type": "multiple_choice",
           "question": "次のうち、インデックススキャンを避けてシーケンシャルスキャンを選択する要因として RDBMS が考慮するものをすべて選べ。",
           "choices": [
@@ -275,8 +237,6 @@
           "explanation": "低カーディナリティや小テーブルではランダム I/O より全スキャンが速いと判断。統計情報不整合も影響。"
         },
         {
-          "id": "q4-5",
-          "number": "問題 4-5",
           "type": "essay",
           "question": "レンジパーティショニングとハッシュパーティショニングの特性を比較し、運用面での選択指針を 300 字以内で述べよ。",
           "correct": "",
@@ -289,8 +249,6 @@
       "title": "セキュリティ",
       "questions": [
         {
-          "id": "q5-1",
-          "number": "問題 5-1",
           "type": "single_choice",
           "question": "SQL インジェクション対策として推奨されるプリペアドステートメントの特徴はどれか。",
           "choices": [
@@ -303,8 +261,6 @@
           "explanation": "プリペアドステートメントは構文解析済みの SQL にパラメータをバインドし、文字列連結を排除することで注入を防止する。"
         },
         {
-          "id": "q5-2",
-          "number": "問題 5-2",
           "type": "single_choice",
           "question": "透過的データ暗号化 (TDE) を導入する主目的として適切なものはどれか。",
           "choices": [
@@ -317,8 +273,6 @@
           "explanation": "TDE はストレージ上のデータを暗号化し、ディスクやバックアップ媒体流出時に平文漏えいを防ぐ。"
         },
         {
-          "id": "q5-3",
-          "number": "問題 5-3",
           "type": "single_choice",
           "question": "データベース監査ログ設計において「不可否認性」を高める施策として最も適切なのはどれか。",
           "choices": [
@@ -331,8 +285,6 @@
           "explanation": "ログ改ざんを検知・防止するハッシュチェーンや電子署名は不可否認性の確保に不可欠。"
         },
         {
-          "id": "q5-4",
-          "number": "問題 5-4",
           "type": "multiple_choice",
           "question": "ロールベースアクセス制御 (RBAC) の利点として正しいものをすべて選べ。",
           "choices": [
@@ -346,8 +298,6 @@
           "explanation": "RBAC はロールを介して権限を集約し、最小権限を保ちつつユーザ管理を簡素化できる。属性依存制御は ABAC の範囲。"
         },
         {
-          "id": "q5-5",
-          "number": "問題 5-5",
           "type": "essay",
           "question": "データベースの列レベル暗号化と透過的データ暗号化 (TDE) の違いを比較し、選択時の判断基準を説明せよ (300 字以内)。",
           "correct": "",
@@ -360,8 +310,6 @@
       "title": "トランザクション・同期処理",
       "questions": [
         {
-          "id": "q6-1",
-          "number": "問題 6-1",
           "type": "single_choice",
           "question": "ACID 特性のうち『一貫性 (Consistency)』が保証するものとして正しい説明はどれか。",
           "choices": [
@@ -374,8 +322,6 @@
           "explanation": "一貫性はトランザクション前後で DB が定義された整合制約を常に満たすことを意味する。"
         },
         {
-          "id": "q6-2",
-          "number": "問題 6-2",
           "type": "single_choice",
           "question": "行レベルロックで共有ロック (S ロック) を保持しているトランザクションが行える操作はどれか。",
           "choices": [
@@ -388,8 +334,6 @@
           "explanation": "共有ロックは読み取り専用アクセスを許可し、書き込み操作を排他する。"
         },
         {
-          "id": "q6-3",
-          "number": "問題 6-3",
           "type": "single_choice",
           "question": "デッドロックが発生した場合、ほとんどの RDBMS が採用する解決策はどれか。",
           "choices": [
@@ -402,8 +346,6 @@
           "explanation": "多くの DB ではデッドロック検出後、犠牲者選択アルゴリズムで特定トランザクションをロールバックする。"
         },
         {
-          "id": "q6-4",
-          "number": "問題 6-4",
           "type": "multiple_choice",
           "question": "トランザクション分離レベル READ COMMITTED で発生し得る現象をすべて選べ。",
           "choices": [
@@ -417,8 +359,6 @@
           "explanation": "RC ではコミット済みデータのみ読めるためダーティリードは防止されるが、NRR・ファントム・ロストアップデートは起こり得る。"
         },
         {
-          "id": "q6-5",
-          "number": "問題 6-5",
           "type": "essay",
           "question": "分散トランザクションで 2PC (二相コミット) が採用される理由と、その欠点をフォールトトレラント設計の観点で論じよ (300 字以内)。",
           "correct": "",
