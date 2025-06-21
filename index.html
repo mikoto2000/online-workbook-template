@@ -153,6 +153,43 @@
             background: #d6f5d6;
             color: #276749;
         }
+        .control-buttons {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        .control-buttons h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+            font-size: 16px;
+        }
+        .clear-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 10px;
+            transition: background-color 0.2s ease;
+        }
+        .clear-btn:hover {
+            background: #c82333;
+        }
+        .save-status {
+            display: inline-block;
+            margin-left: 15px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
         .disclaimer {
             background: #fef5e7;
             border: 1px solid #f6e05e;
@@ -193,6 +230,12 @@
         
         <div class="nav" id="nav-menu">
             <!-- ナビゲーションはJavaScriptで動的生成 -->
+        </div>
+        
+        <div class="control-buttons">
+            <h3>🔧 操作メニュー</h3>
+            <button class="clear-btn" onclick="clearAllAnswers()" title="すべての回答をクリアします">🗑️ 回答をすべてクリア</button>
+            <span class="save-status" id="save-status">💾 回答は自動保存されます</span>
         </div>
 
         <div id="content">
@@ -268,7 +311,7 @@
                     <div class="question essay">
                         <div class="question-number">${question.number}<span class="question-type">${typeLabel}</span></div>
                         <p>${question.question}</p>
-                        <textarea class="essay-input" placeholder="こちらに回答を記述してください..."></textarea>
+                        <textarea class="essay-input" data-question="${question.id}" placeholder="こちらに回答を記述してください..."></textarea>
                         <button class="show-answer-btn" onclick="toggleAnswer('answer-${question.id}')">解答例を表示</button>
                         <div class="answer" id="answer-${question.id}">
                             <strong>解答例：</strong><br>
@@ -333,10 +376,134 @@
             });
         }
 
+        // ローカルストレージキー
+        const STORAGE_KEY = 'db-specialist-answers';
+        
+        // 回答データを保存
+        function saveAnswer(questionId, value, isMultiple = false) {
+            let answers = getStoredAnswers();
+            
+            if (isMultiple) {
+                // 複数選択の場合
+                if (!answers[questionId]) {
+                    answers[questionId] = [];
+                }
+                const currentAnswers = answers[questionId];
+                const index = currentAnswers.indexOf(value);
+                
+                if (index > -1) {
+                    // 既に選択されている場合は削除
+                    currentAnswers.splice(index, 1);
+                } else {
+                    // 新しく選択
+                    currentAnswers.push(value);
+                }
+            } else {
+                // 単一選択・記述式の場合
+                answers[questionId] = value;
+            }
+            
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
+            updateSaveStatus();
+        }
+        
+        // 保存された回答を取得
+        function getStoredAnswers() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored ? JSON.parse(stored) : {};
+        }
+        
+        // 回答を復元
+        function restoreAnswers() {
+            const answers = getStoredAnswers();
+            
+            Object.keys(answers).forEach(questionId => {
+                const answer = answers[questionId];
+                
+                if (Array.isArray(answer)) {
+                    // 複数選択の場合
+                    answer.forEach(value => {
+                        const checkbox = document.querySelector(`input[name="${questionId}"][value="${value}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    });
+                } else {
+                    // 単一選択・記述式の場合
+                    const input = document.querySelector(`input[name="${questionId}"][value="${answer}"], textarea[data-question="${questionId}"]`);
+                    if (input) {
+                        if (input.type === 'radio' || input.type === 'checkbox') {
+                            input.checked = true;
+                        } else {
+                            input.value = answer;
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 全回答をクリア
+        function clearAllAnswers() {
+            if (confirm('すべての回答をクリアしてもよろしいですか？\n\n※この操作は元に戻せません。')) {
+                localStorage.removeItem(STORAGE_KEY);
+                
+                // ラジオボタンとチェックボックスをクリア
+                document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+                    input.checked = false;
+                });
+                
+                // テキストエリアをクリア
+                document.querySelectorAll('.essay-input').forEach(textarea => {
+                    textarea.value = '';
+                });
+                
+                updateSaveStatus();
+                alert('すべての回答をクリアしました。');
+            }
+        }
+        
+        // 保存状態の表示を更新
+        function updateSaveStatus() {
+            const statusElement = document.getElementById('save-status');
+            const answers = getStoredAnswers();
+            const answerCount = Object.keys(answers).length;
+            
+            if (answerCount > 0) {
+                statusElement.textContent = `💾 ${answerCount}問の回答を保存中`;
+                statusElement.style.background = '#d4edda';
+                statusElement.style.color = '#155724';
+            } else {
+                statusElement.textContent = '💾 回答は自動保存されます';
+                statusElement.style.background = '#f8f9fa';
+                statusElement.style.color = '#6c757d';
+            }
+        }
+        
+        // イベントリスナーを設定
+        function setupAnswerListeners() {
+            // ラジオボタンとチェックボックスのイベント
+            document.addEventListener('change', function(e) {
+                if (e.target.type === 'radio') {
+                    saveAnswer(e.target.name, e.target.value, false);
+                } else if (e.target.type === 'checkbox') {
+                    saveAnswer(e.target.name, e.target.value, true);
+                }
+            });
+            
+            // テキストエリアのイベント（記述式問題）
+            document.addEventListener('input', function(e) {
+                if (e.target.classList.contains('essay-input')) {
+                    const questionId = e.target.getAttribute('data-question');
+                    if (questionId) {
+                        saveAnswer(questionId, e.target.value, false);
+                    }
+                }
+            });
+        }
+        
         // ページ読み込み時の初期化
         document.addEventListener('DOMContentLoaded', function() {
             loadQuestions();
             setupSmoothScroll();
+            setupAnswerListeners();
         });
         
         // 記述式問題の文字数カウント機能（オプション）
@@ -373,7 +540,11 @@
             }).join('');
             
             // 記述式問題の文字数カウンターを設定
-            setTimeout(setupEssayCounters, 100);
+            setTimeout(() => {
+                setupEssayCounters();
+                restoreAnswers();
+                updateSaveStatus();
+            }, 100);
         }
     </script>
 </body>
