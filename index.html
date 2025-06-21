@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>データベーススペシャリスト試験 問題集</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2153701803453039"
+     crossorigin="anonymous"></script>
+
     <style>
         body {
             font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
@@ -216,6 +221,32 @@
             background: #f0fff4;
             border: 1px solid #c6f6d5;
         }
+        
+        /* AdSense 広告スタイル */
+        .ad-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+        .ad-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        .ad-horizontal {
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ad-sidebar {
+            min-height: 600px;
+            width: 300px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -243,8 +274,36 @@
             <span class="save-status" id="save-status">💾 回答は自動保存されます</span>
         </div>
 
+        <!-- トップ広告 -->
+        <div class="ad-container">
+            <div class="ad-label">広告</div>
+            <div class="ad-horizontal">
+                <!-- レスポンシブ広告 -->
+                <!--<ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2153701803453039"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>-->
+            </div>
+        </div>
+
         <div id="content">
             <!-- 問題はJavaScriptで動的生成 -->
+        </div>
+
+        <!-- ボトム広告 -->
+        <div class="ad-container">
+            <div class="ad-label">広告</div>
+            <div class="ad-horizontal">
+                <!-- レスポンシブ広告 -->
+                <!--<ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2153701803453039"
+                     data-ad-slot="YOUR_AD_SLOT_ID_2"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>-->
+            </div>
         </div>
     </div>
 
@@ -600,7 +659,26 @@
                 const sectionHtml = `
                     <div class="section" id="${section.id}">
                         <h2>${sectionIndex + 1}. ${section.title}</h2>
-                        ${section.questions.map(question => renderQuestion(question)).join('')}
+                        ${section.questions.map((question, questionIndex) => {
+                            let questionHtml = renderQuestion(question);
+                            // セクション内の10問目ごとに広告を挿入
+                            if ((questionIndex + 1) % 10 === 0 && questionIndex < section.questions.length - 1) {
+                                questionHtml += `
+                                    <div class="ad-container">
+                                        <div class="ad-label">広告</div>
+                                        <div class="ad-horizontal">
+                                            <!--<ins class="adsbygoogle"
+                                                 style="display:block"
+                                                 data-ad-client="ca-pub-2153701803453039"
+                                                 data-ad-slot="YOUR_AD_SLOT_ID_INLINE"
+                                                 data-ad-format="auto"
+                                                 data-full-width-responsive="true"></ins>-->
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                            return questionHtml;
+                        }).join('')}
                     </div>
                 `;
                 return sectionHtml;
@@ -612,7 +690,23 @@
                 restoreAnswers();
                 updateSaveStatus();
                 updateAnsweredQuestions();
+                initializeAds();
             }, 100);
+        }
+
+        // AdSense広告を初期化
+        function initializeAds() {
+            try {
+                // すべてのadsbygoogle要素を取得して初期化
+                const ads = document.querySelectorAll('.adsbygoogle');
+                ads.forEach(ad => {
+                    if (!ad.getAttribute('data-adsbygoogle-status')) {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    }
+                });
+            } catch (e) {
+                console.log('AdSense初期化エラー:', e);
+            }
         }
     </script>
 </body>
