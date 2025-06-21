@@ -1,119 +1,521 @@
 {
-  "title": "データベーススペシャリスト試験 問題集",
+  "title": "データベーススペシャリスト試験 問題集（全6分野・120問）",
   "sections": [
     {
       "id": "database-design",
       "title": "データベース設計",
       "questions": [
         {
+          "id": "q1-1",
           "type": "single_choice",
-          "question": "E-R 図で「1 対多」の多側を表す適切な表記は次のうちどれか。",
+          "question": "概念設計で実体(エンティティ)を識別する際、最も優先して確認すべき情報源はどれか。",
           "choices": [
-            { "value": "a", "text": "菱形を多側エンティティに付加" },
-            { "value": "b", "text": "クロウズフットを多側に描く" },
-            { "value": "c", "text": "二重線を多側に描く" },
-            { "value": "d", "text": "矢印を多側に向ける" }
-          ],
-          "correct": "b",
-          "explanation": "クロウズフット記法では多側（0..*, 1..* など）に三又の足形を描くことで多重度を示す。"
-        },
-        {
-          "type": "single_choice",
-          "question": "物理設計でパーティションキーを選定する主な目的として最も適切なものはどれか。",
-          "choices": [
-            { "value": "a", "text": "スキーマの可読性向上" },
-            { "value": "b", "text": "論理削除の簡素化" },
-            { "value": "c", "text": "I/O 並列性と局所性の最適化" },
-            { "value": "d", "text": "SQL 文の短縮" }
-          ],
-          "correct": "c",
-          "explanation": "パーティションキーはデータ配置を物理的に分割し、I/O 並列性とキャッシュ局所性を高めるために選定する。"
-        },
-        {
-          "type": "single_choice",
-          "question": "外部キー制約を論理設計段階で定義しておく主な利点はどれか。",
-          "choices": [
-            { "value": "a", "text": "統合テストのコスト削減" },
-            { "value": "b", "text": "参照整合性をスキーマで強制できる" },
-            { "value": "c", "text": "SQL 文の自動生成が容易" },
-            { "value": "d", "text": "アプリケーション側ロジック削減が困難" }
-          ],
-          "correct": "b",
-          "explanation": "外部キー制約は RDBMS が参照整合性を保証するため、設計段階で定義することで不整合データの混入を防止できる。"
-        },
-        {
-          "type": "multiple_choice",
-          "question": "概念設計においてエンティティを抽出する際の代表的な手法として適切なものをすべて選べ。",
-          "choices": [
-            { "value": "a", "text": "名詞抽出法" },
-            { "value": "b", "text": "時系列分析法" },
-            { "value": "c", "text": "CRUD 行列法" },
-            { "value": "d", "text": "トリガベース分析法" },
-            { "value": "e", "text": "ダミーデータ生成法" }
-          ],
-          "correct": ["a", "c"],
-          "explanation": "名詞抽出法と CRUD 行列法は実務で広く用いられる。時系列分析はイベント抽出、トリガは運用設計寄りでエンティティ抽出手法とは異なる。"
-        },
-        {
-          "type": "essay",
-          "question": "概念設計と論理設計の違いを 300 字以内で説明し、両者の成果物が後続工程に与える影響について述べよ。",
-          "correct": "",
-          "explanation": "概念設計は業務要件を抽象化しエンティティ・関係を明確化、論理設計は RDBMS 非依存でキーや属性を定義する工程である。後続の物理設計や SQL 実装に直接影響するため理解が重要。"
-        },
-        {
-          "type": "single_choice",
-          "question": "E-R 図で強いエンティティと弱いエンティティの違いとして最も適切な説明はどれか。",
-          "choices": [
-            { "value": "a", "text": "弱いエンティティは主キーを単独で持てず、親エンティティのキーを含む複合キーを持つ" },
-            { "value": "b", "text": "弱いエンティティは参照整合性を適用できない" },
-            { "value": "c", "text": "強いエンティティは外部キーを持たない" },
-            { "value": "d", "text": "強いエンティティは物理設計で必ずインデックスを持つ" }
+            {
+              "value": "a",
+              "text": "業務要件を記述したドキュメントやヒアリング結果"
+            },
+            {
+              "value": "b",
+              "text": "使用予定のRDBMSの制約一覧"
+            },
+            {
+              "value": "c",
+              "text": "サーバのCPUコア数"
+            },
+            {
+              "value": "d",
+              "text": "データベースのバックアップポリシー"
+            }
           ],
           "correct": "a",
-          "explanation": "弱いエンティティは独自の主キーを持たず親エンティティの主キーを取り込むため、複合キーで識別される点が強いエンティティと異なる。"
+          "explanation": "エンティティは業務で扱う概念を表すため、業務要件やヒアリング内容から抽出するのが基本である。"
         },
         {
+          "id": "q1-2",
           "type": "single_choice",
-          "question": "物理設計においてテーブルをパーティショニングする主目的として最も適切なものはどれか。",
+          "question": "論理設計において第3正規形(3NF)まで正規化する主目的として最も適切なものはどれか。",
           "choices": [
-            { "value": "a", "text": "論理名を短縮するため" },
-            { "value": "b", "text": "I/O の並列化とメンテナンス効率の向上を図るため" },
-            { "value": "c", "text": "SQL 文を簡潔に記述するため" },
-            { "value": "d", "text": "アプリケーションのバージョン管理のため" }
-          ],
-          "correct": "b",
-          "explanation": "パーティショニングはデータを物理的に分割し、I/O 並列性とバックアップ・アーカイブなどの運用効率を高めることが主目的である。"
-        },
-        {
-          "type": "single_choice",
-          "question": "概念設計でユースケース駆動法を採用する主な利点として正しいものはどれか。",
-          "choices": [
-            { "value": "a", "text": "業務フローとエンティティの対応関係を早期に可視化できる" },
-            { "value": "b", "text": "SQL チューニング工数を削減できる" },
-            { "value": "c", "text": "ストレージコストを即時に算出できる" },
-            { "value": "d", "text": "データベース暗号化方式を自動決定できる" }
+            {
+              "value": "a",
+              "text": "更新時の不整合を防ぎデータの整合性を高める"
+            },
+            {
+              "value": "b",
+              "text": "バックアップサイズを縮小する"
+            },
+            {
+              "value": "c",
+              "text": "SQL文の可読性を向上させる"
+            },
+            {
+              "value": "d",
+              "text": "同時実行性を高めるためロック範囲を縮小する"
+            }
           ],
           "correct": "a",
-          "explanation": "ユースケース駆動法は業務シナリオを起点にエンティティや関係を抽出でき、要件の漏れを防ぎやすい点が大きな利点となる。"
+          "explanation": "正規化は冗長データと更新異常を排除し、整合性を高めることが主目的である。"
         },
         {
-          "type": "multiple_choice",
-          "question": "論理設計段階で外部キー制約を設定する効果として適切なものをすべて選べ。",
+          "id": "q1-3",
+          "type": "single_choice",
+          "question": "弱エンティティ型(weak entity)の識別子に関する説明として正しいものはどれか。",
           "choices": [
-            { "value": "a", "text": "参照整合性違反データの登録防止" },
-            { "value": "b", "text": "結合クエリ実行時のプラン最適化支援" },
-            { "value": "c", "text": "アプリケーション側の入力チェック完全不要化" },
-            { "value": "d", "text": "データ削除時のカスケード操作自動化" },
-            { "value": "e", "text": "全文検索インデックスの自動生成" }
+            {
+              "value": "a",
+              "text": "親エンティティの主キーに自身の識別子を加えた複合キーで識別される"
+            },
+            {
+              "value": "b",
+              "text": "単一の自然キーで常に識別される"
+            },
+            {
+              "value": "c",
+              "text": "主キーを持たず行番号で識別される"
+            },
+            {
+              "value": "d",
+              "text": "代理キーのみで識別される"
+            }
           ],
-          "correct": ["a", "b", "d"],
-          "explanation": "外部キーは参照整合性を保証し、統計情報の精度向上でプラン最適化に寄与し、カスケード指定により関連行を自動削除できる。"
+          "correct": "a",
+          "explanation": "弱エンティティは親の存在に依存し、親の主キーと自エンティティの部分キーを組み合わせて一意に識別される。"
         },
         {
+          "id": "q1-4",
+          "type": "single_choice",
+          "question": "クロウズフット記法のE-R図で、多側(多重度0..*)を表すシンボルはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "三又(カラスの足)"
+            },
+            {
+              "value": "b",
+              "text": "菱形"
+            },
+            {
+              "value": "c",
+              "text": "二重線"
+            },
+            {
+              "value": "d",
+              "text": "矢印"
+            }
+          ],
+          "correct": "a",
+          "explanation": "クロウズフット記法では多側を三又の足(クロウズフット)で表す。"
+        },
+        {
+          "id": "q1-5",
+          "type": "single_choice",
+          "question": "サロゲートキー(代理キー)を導入する主な利点として最も適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "主キーの変更が業務要件に影響を与えにくくなる"
+            },
+            {
+              "value": "b",
+              "text": "ストレージ使用量が必ず削減できる"
+            },
+            {
+              "value": "c",
+              "text": "参照整合性制約を設定できなくなる"
+            },
+            {
+              "value": "d",
+              "text": "アプリケーションでの重複チェックが不要になる"
+            }
+          ],
+          "correct": "a",
+          "explanation": "サロゲートキーは意味を持たない固定キーのため、業務キー変動時の影響を最小化できる。"
+        },
+        {
+          "id": "q1-6",
+          "type": "single_choice",
+          "question": "ビュー(View)を論理設計に組み込む最も大きなメリットはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "物理テーブル構造を変更してもアプリケーションへの影響を最小化できる"
+            },
+            {
+              "value": "b",
+              "text": "トランザクションログの生成を抑制できる"
+            },
+            {
+              "value": "c",
+              "text": "ストアドプロシージャを不要にできる"
+            },
+            {
+              "value": "d",
+              "text": "サーバのCPU負荷を直接低減できる"
+            }
+          ],
+          "correct": "a",
+          "explanation": "ビューは論理的レイヤを提供し、下位の物理テーブル変更をアプリケーションから隠蔽する役割を持つ。"
+        },
+        {
+          "id": "q1-7",
+          "type": "single_choice",
+          "question": "データドメインを厳密に定義して再利用することによる効果として適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "属性の型と制約を一元管理し整合性を高められる"
+            },
+            {
+              "value": "b",
+              "text": "全ての外部キー制約を自動生成できる"
+            },
+            {
+              "value": "c",
+              "text": "SQLインジェクションを完全に防止できる"
+            },
+            {
+              "value": "d",
+              "text": "バックアップ運用を簡素化できる"
+            }
+          ],
+          "correct": "a",
+          "explanation": "共通ドメインを定義して再利用することで各テーブルで同じ制約を統一的に適用し、データ品質を高められる。"
+        },
+        {
+          "id": "q1-8",
+          "type": "single_choice",
+          "question": "多対多リレーションを中間テーブルで実装する際の注意点として最も重要なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "中間テーブルに複合主キーまたは一意制約を設定し重複行を排除する"
+            },
+            {
+              "value": "b",
+              "text": "中間テーブルには一切のインデックスを設定しない"
+            },
+            {
+              "value": "c",
+              "text": "中間テーブルに外部キーを設定しない"
+            },
+            {
+              "value": "d",
+              "text": "中間テーブルにトリガを必ず設定する"
+            }
+          ],
+          "correct": "a",
+          "explanation": "同一ペアの重複行を防ぐため、中間テーブルには親2列の複合主キー(または一意制約)を設定するのが基本。"
+        },
+        {
+          "id": "q1-9",
+          "type": "single_choice",
+          "question": "圧縮テーブルを採用した場合に一般的に発生しやすいデメリットはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "CPU使用率が上昇する"
+            },
+            {
+              "value": "b",
+              "text": "物理I/Oが増加する"
+            },
+            {
+              "value": "c",
+              "text": "参照整合性が維持できなくなる"
+            },
+            {
+              "value": "d",
+              "text": "インデックスが使用不能になる"
+            }
+          ],
+          "correct": "a",
+          "explanation": "データ伸長・圧縮処理にCPUを使用するため、圧縮率とCPU負荷のトレードオフが生じる。"
+        },
+        {
+          "id": "q1-10",
+          "type": "single_choice",
+          "question": "クラスタ化インデックス(Clustered Index)を設定したテーブルに対するINSERT大量実行時に発生しやすい現象はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ページスプリットが頻発しフラグメンテーションが進行する"
+            },
+            {
+              "value": "b",
+              "text": "トランザクションログが記録されなくなる"
+            },
+            {
+              "value": "c",
+              "text": "テーブルサイズが自動的に縮小する"
+            },
+            {
+              "value": "d",
+              "text": "ハッシュ衝突が多発しSELECTが遅くなる"
+            }
+          ],
+          "correct": "a",
+          "explanation": "物理順序保持のため途中への挿入でページスプリットが起こり、断片化が蓄積して性能低下を招く。"
+        },
+        {
+          "id": "q1-11",
+          "type": "single_choice",
+          "question": "マスタデータ管理(MDM)におけるゴールデンレコードを作成する主目的はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "散在するマスタ情報を統合し単一の信頼ソースを提供する"
+            },
+            {
+              "value": "b",
+              "text": "バックアッププロセスを廃止する"
+            },
+            {
+              "value": "c",
+              "text": "外部キー制約を簡素化する"
+            },
+            {
+              "value": "d",
+              "text": "ログテーブル容量を削減する"
+            }
+          ],
+          "correct": "a",
+          "explanation": "ゴールデンレコードは複数システムに分散するマスタを統合し、全社で一貫した参照元を提供することを目的とする。"
+        },
+        {
+          "id": "q1-12",
+          "type": "single_choice",
+          "question": "エンティティライフサイクル図(Entity Life Cycle Diagram)が設計レビューで役立つ理由として最も適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "状態遷移とCRUD操作の整合性を可視化できる"
+            },
+            {
+              "value": "b",
+              "text": "SQLチューニングの自動化ができる"
+            },
+            {
+              "value": "c",
+              "text": "ETL処理を不要にできる"
+            },
+            {
+              "value": "d",
+              "text": "ネットワーク帯域を削減できる"
+            }
+          ],
+          "correct": "a",
+          "explanation": "ライフサイクル図は状態遷移ごとに許可されるCRUDを示し、不整合や漏れを検出しやすくするため。"
+        },
+        {
+          "id": "q1-13",
+          "type": "multiple_choice",
+          "question": "外部キー制約を設定することによって得られる効果として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "参照整合性違反データの登録を防止できる"
+            },
+            {
+              "value": "b",
+              "text": "結合クエリの実行計画精度向上に寄与する"
+            },
+            {
+              "value": "c",
+              "text": "自動的にビューが生成される"
+            },
+            {
+              "value": "d",
+              "text": "ON DELETEオプションによりカスケード削除を自動化できる"
+            },
+            {
+              "value": "e",
+              "text": "CHECK制約を不要にできる"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "d"
+          ],
+          "explanation": "外部キーは整合性を強制し、統計情報を通じてプラン最適化に寄与し、カスケード設定も可能である。"
+        },
+        {
+          "id": "q1-14",
+          "type": "multiple_choice",
+          "question": "名詞抽出法でエンティティ候補を決定した後に行う検証として適切なものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "CRUD行列表で業務機能とデータ操作の対応を確認する"
+            },
+            {
+              "value": "b",
+              "text": "ユースケースごとのステートチャートを作成し整合性を確認する"
+            },
+            {
+              "value": "c",
+              "text": "抽出した名詞が属性かエンティティか分類する"
+            },
+            {
+              "value": "d",
+              "text": "SQL実行計画を取得してアクセス経路を評価する"
+            },
+            {
+              "value": "e",
+              "text": "表記ゆれや同義語を統一する"
+            }
+          ],
+          "correct": [
+            "a",
+            "c",
+            "e"
+          ],
+          "explanation": "名詞抽出後はCRUD行列表で機能対応確認、属性/エンティティ分類、表記統一を行うのが一般的手順である。"
+        },
+        {
+          "id": "q1-15",
+          "type": "multiple_choice",
+          "question": "パーティションプルーニングが有効になるSQLの条件として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "WHERE句でパーティションキーを定数比較している"
+            },
+            {
+              "value": "b",
+              "text": "パーティションキーに対し関数を適用している"
+            },
+            {
+              "value": "c",
+              "text": "パーティションキー同士で等価結合している"
+            },
+            {
+              "value": "d",
+              "text": "ORDER BYのみでパーティションキーを参照している"
+            },
+            {
+              "value": "e",
+              "text": "パーティション統計情報が最新である"
+            }
+          ],
+          "correct": [
+            "a",
+            "c",
+            "e"
+          ],
+          "explanation": "定数比較や等価結合はプルーニング対象になり、統計情報が新しいことも前提。関数適用やORDER BYのみではプルーニングが働きにくい。"
+        },
+        {
+          "id": "q1-16",
+          "type": "multiple_choice",
+          "question": "外部キー制約にON DELETE SET NULLを設定することで実現できる設計上の利点として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "親行削除時に子行を残したまま参照整合性を維持できる"
+            },
+            {
+              "value": "b",
+              "text": "子テーブルの物理削除に伴う監査ログを削減できる"
+            },
+            {
+              "value": "c",
+              "text": "アプリケーションコードでのNULL設定処理を省略できる"
+            },
+            {
+              "value": "d",
+              "text": "子テーブルの検索性能を必ず向上させる"
+            },
+            {
+              "value": "e",
+              "text": "トリガが不要になる場合がある"
+            }
+          ],
+          "correct": [
+            "a",
+            "c",
+            "e"
+          ],
+          "explanation": "SET NULLは参照切替えをDB側で自動処理でき、コード削減やトリガ不要化に寄与するが性能向上は保証しない。"
+        },
+        {
+          "id": "q1-17",
+          "type": "multiple_choice",
+          "question": "ドメイン(データ型＋制約)を共通定義として活用することによる組織的メリットとして正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "スキーマ間で型の一貫性が保たれる"
+            },
+            {
+              "value": "b",
+              "text": "新規開発時の設計工数を削減できる"
+            },
+            {
+              "value": "c",
+              "text": "将来の制約変更をドメイン定義だけで反映できる"
+            },
+            {
+              "value": "d",
+              "text": "データの暗号化を自動化できる"
+            },
+            {
+              "value": "e",
+              "text": "インデックス再構築が不要になる"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c"
+          ],
+          "explanation": "共通ドメインは型・制約の再利用を促し、変更点も一箇所で済むため設計・保守効率が高まる。"
+        },
+        {
+          "id": "q1-18",
+          "type": "multiple_choice",
+          "question": "逆正規化パターン『列複写』を適用する際の注意点として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "更新時に複写列の整合性を保つためトリガやアプリ側処理が必要"
+            },
+            {
+              "value": "b",
+              "text": "参照クエリのJOIN回数を削減し読み取り性能を向上できる"
+            },
+            {
+              "value": "c",
+              "text": "ストレージ使用量が増加する可能性がある"
+            },
+            {
+              "value": "d",
+              "text": "必ず書き込み性能が向上する"
+            },
+            {
+              "value": "e",
+              "text": "列複写を行うと外部キー制約は設定できない"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c"
+          ],
+          "explanation": "列複写はリード性能向上と引き換えに冗長化・整合性維持コスト増大、ストレージ増加のリスクがある。"
+        },
+        {
+          "id": "q1-19",
           "type": "essay",
-          "question": "逆正規化を行う際の判断基準と典型的なパターンについて300字以内で説明せよ。",
+          "question": "大規模テーブルでレンジパーティショニングとグローバル索引を併用する場合の利点と注意点を300字以内で説明せよ。",
           "correct": "",
-          "explanation": "逆正規化は性能要件や集計効率を優先して冗長化を許容する設計手法であり、読取頻度が極端に高い参照テーブルの複写などが代表例になる。"
+          "explanation": "レンジパーティションは時間系列データ運用が容易、グローバル索引は全体検索を高速化。しかしパーティション再編時の索引再構築やロック時間増加に注意。"
+        },
+        {
+          "id": "q1-20",
+          "type": "essay",
+          "question": "E-R図レビュー時に頻出する設計不備を三つ挙げ、それぞれが運用フェーズで引き起こす問題を具体的に述べよ(300字以内)。",
+          "correct": "",
+          "explanation": "例: 多対多未解消→冗長データ・性能低下、弱エンティティのキー不足→更新異常、曖昧な多重度→アプリケーション例外や重複データ発生。"
         }
       ]
     },
@@ -122,114 +524,465 @@
       "title": "SQL",
       "questions": [
         {
+          "id": "q2-1",
           "type": "single_choice",
-          "question": "ウィンドウ関数 ROW_NUMBER() の主な用途として正しいものはどれか。",
+          "question": "次のSQL文のうち、NULL値を含む列に対して正しく件数をカウントするものはどれか。",
           "choices": [
-            { "value": "a", "text": "行をランダムに抽出する" },
-            { "value": "b", "text": "パーティション内で順位を付与する" },
-            { "value": "c", "text": "複数列の NULL を置換する" },
-            { "value": "d", "text": "JSON をパースする" }
-          ],
-          "correct": "b",
-          "explanation": "ROW_NUMBER() は PARTITION BY と ORDER BY で区切ったパーティション内に連番を付与するウィンドウ関数である。"
-        },
-        {
-          "type": "single_choice",
-          "question": "PostgreSQL などで JSON 列からキー \"price\" を数値として抽出する SQL 例として適切なのはどれか。",
-          "choices": [
-            { "value": "a", "text": "SELECT price::json FROM items;" },
-            { "value": "b", "text": "SELECT items->>'price'::numeric FROM items;" },
-            { "value": "c", "text": "SELECT (items->>'price')::numeric FROM items;" },
-            { "value": "d", "text": "SELECT json_extract(price) FROM items;" }
-          ],
-          "correct": "c",
-          "explanation": "->> でテキスト抽出後にキャスト ( ... )::numeric する。選択肢 b はキャスト位置が誤り。"
-        },
-        {
-          "type": "single_choice",
-          "question": "SQL92 で定義された外部結合のうち FULL OUTER JOIN の結果について正しい説明はどれか。",
-          "choices": [
-            { "value": "a", "text": "結合条件を満たす行のみを返す" },
-            { "value": "b", "text": "左テーブルの全行と一致行を返す" },
-            { "value": "c", "text": "両テーブルの全行を返し一致しない側は NULL" },
-            { "value": "d", "text": "右テーブルの全行と一致行を返す" }
-          ],
-          "correct": "c",
-          "explanation": "FULL OUTER JOIN は LEFT と RIGHT の和集合であり、どちらにも一致しない側の列は NULL を返す。"
-        },
-        {
-          "type": "multiple_choice",
-          "question": "SQL 標準で定義されるトランザクション分離レベルに含まれるものをすべて選べ。",
-          "choices": [
-            { "value": "a", "text": "READ UNCOMMITTED" },
-            { "value": "b", "text": "READ COMMITTED" },
-            { "value": "c", "text": "REPEATABLE READ" },
-            { "value": "d", "text": "SERIALIZABLE" },
-            { "value": "e", "text": "LINEARIZABLE" }
-          ],
-          "correct": ["a", "b", "c", "d"],
-          "explanation": "SQL 標準は 4 段階 (RU, RC, RR, S) を規定し、LINEARIZABLE は分散 DB で用いられる概念で標準には含まれない。"
-        },
-        {
-          "type": "essay",
-          "question": "WITH 句 (共通テーブル式) を用いた再帰クエリの仕組みと実用例について 300 字以内で説明せよ。",
-          "correct": "",
-          "explanation": "再帰 WITH は UNION ALL と固定名 CTE を用いて階層データを走査できる。階層構造メニュー、組織ツリー集計などで有効。"
-        },
-        {
-          "type": "single_choice",
-          "question": "ウィンドウ関数 ROW_NUMBER() を使用して取得できる情報として最も適切なものはどれか。",
-          "choices": [
-            { "value": "a", "text": "パーティション内で指定順序に基づく連番" },
-            { "value": "b", "text": "前行との差分値" },
-            { "value": "c", "text": "累積合計" },
-            { "value": "d", "text": "行のハッシュ値" }
+            {
+              "value": "a",
+              "text": "SELECT COUNT(*) FROM orders WHERE discount IS NULL;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT COUNT(discount) FROM orders WHERE discount IS NULL;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT COUNT(*) FROM orders WHERE discount = NULL;"
+            },
+            {
+              "value": "d",
+              "text": "SELECT COUNT(*) FROM orders WHERE discount <> NULL;"
+            }
           ],
           "correct": "a",
-          "explanation": "ROW_NUMBER() は PARTITION BY と ORDER BY で区切られた範囲内に 1 からの連番を付与する機能である。"
+          "explanation": "NULLの比較にはIS NULLを用いる。'discount = NULL'や'<> NULL'は誤り。COUNT(列名)はNULLを除くため、COUNT(*)で件数を得る必要がある。"
         },
         {
+          "id": "q2-2",
           "type": "single_choice",
-          "question": "PostgreSQL で JSONB 列のキー \"price\" を数値型として抽出する正しい記述はどれか。",
+          "question": "次のSQL文のうち、売上テーブル（sales）から2023年の月別売上合計を求めるクエリとして正しいものはどれか。",
           "choices": [
-            { "value": "a", "text": "SELECT price::numeric FROM items;" },
-            { "value": "b", "text": "SELECT (data->>'price')::numeric FROM items;" },
-            { "value": "c", "text": "SELECT data->'price'::numeric FROM items;" },
-            { "value": "d", "text": "SELECT CAST(data#>>'{price}' AS numeric) FROM items;" }
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount), MONTH(sale_date) FROM sales GROUP BY sale_date;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT MONTH(sale_date), SUM(amount) FROM sales WHERE sale_date BETWEEN '2023-01-01' AND '2023-12-31' GROUP BY MONTH(sale_date);"
+            },
+            {
+              "value": "c",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY MONTH(sale_date);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT MONTH(sale_date), amount FROM sales GROUP BY amount;"
+            }
           ],
           "correct": "b",
-          "explanation": "->> でテキストとして取り出し、その結果を numeric にキャストするのが正しい方法である。"
+          "explanation": "WHERE句で2023年の範囲を限定し、MONTHで月単位に集計、GROUP BYで月ごとに集計する構文が適切。"
         },
         {
+          "id": "q2-3",
           "type": "single_choice",
-          "question": "ANSI SQL における MERGE 文の主な用途として正しいものはどれか。",
+          "question": "次のSQL文のうち、全ての部署の平均給与より高い給与の従業員を取得するサブクエリの書き方として正しいものはどれか。",
           "choices": [
-            { "value": "a", "text": "条件に応じて INSERT と UPDATE を切り替える upsert 操作" },
-            { "value": "b", "text": "ビューを一時的にマテリアライズする" },
-            { "value": "c", "text": "トリガの実行タイミングを変更する" },
-            { "value": "d", "text": "外部キー制約を一時的に無効化する" }
+            {
+              "value": "a",
+              "text": "SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees GROUP BY department_id);"
+            },
+            {
+              "value": "b",
+              "text": "SELECT * FROM employees WHERE salary > ALL (SELECT AVG(salary) FROM employees GROUP BY department_id);"
+            },
+            {
+              "value": "c",
+              "text": "SELECT * FROM employees WHERE salary > ANY (SELECT AVG(salary) FROM employees GROUP BY department_id);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"
+            }
           ],
-          "correct": "a",
-          "explanation": "MERGE はマッチした行を UPDATE、マッチしない行を INSERT する upsert 処理を 1 文で実現する。"
+          "correct": "b",
+          "explanation": "ALL句を使えば、全てのグループ（ここでは部署）の平均給与より高い従業員を取得できる。"
         },
         {
+          "id": "q2-4",
           "type": "multiple_choice",
-          "question": "SQL 標準で定義されているトランザクション分離レベルをすべて選べ。",
+          "question": "SQLにおいてビュー（VIEW）を利用するメリットとして適切なものをすべて選べ。",
           "choices": [
-            { "value": "a", "text": "READ UNCOMMITTED" },
-            { "value": "b", "text": "READ COMMITTED" },
-            { "value": "c", "text": "REPEATABLE READ" },
-            { "value": "d", "text": "SERIALIZABLE" },
-            { "value": "e", "text": "LINEARIZABLE" }
+            {
+              "value": "a",
+              "text": "複雑なクエリを簡略化できる"
+            },
+            {
+              "value": "b",
+              "text": "データベースのバックアップ速度が向上する"
+            },
+            {
+              "value": "c",
+              "text": "データのアクセス制限を行いやすくなる"
+            },
+            {
+              "value": "d",
+              "text": "更新系トリガーを無効にできる"
+            },
+            {
+              "value": "e",
+              "text": "スキーマの抽象化が可能になる"
+            }
           ],
-          "correct": ["a", "b", "c", "d"],
-          "explanation": "SQL92 では 4 つの分離レベルが規定されており、LINEARIZABLE は分散システム特有の概念で標準外である。"
+          "correct": [
+            "a",
+            "c",
+            "e"
+          ],
+          "explanation": "ビューは抽象化・再利用・アクセス制御に有効であるが、バックアップやトリガーには直接関与しない。"
         },
         {
+          "id": "q2-5",
           "type": "essay",
-          "question": "共通テーブル式（WITH 句）を用いた再帰クエリの仕組みと典型的な応用例を300字以内で説明せよ。",
+          "question": "WITH句（共通テーブル式: CTE）の利点と注意点について、業務アプリケーションでの利用例を挙げながら300字以内で説明せよ。",
           "correct": "",
-          "explanation": "再帰 CTE は UNION ALL で自己参照しながら行を展開し、階層構造の木探索や組織ツリーの集計などで活用される。"
+          "explanation": "CTEは可読性向上や再帰クエリに有効だが、パフォーマンスや最適化の影響には注意が必要。"
+        },
+        {
+          "id": "q2-7",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、サブクエリを相関サブクエリとして使用しているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT * FROM employees WHERE department_id IN (SELECT department_id FROM departments);"
+            },
+            {
+              "value": "b",
+              "text": "SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);"
+            },
+            {
+              "value": "c",
+              "text": "SELECT e1.* FROM employees e1 WHERE salary > (SELECT AVG(salary) FROM employees e2 WHERE e2.department_id = e1.department_id);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM employees WHERE EXISTS (SELECT * FROM departments);"
+            }
+          ],
+          "correct": "c",
+          "explanation": "選択肢cは外部クエリの値（e1.department_id）をサブクエリ内で使用しており、相関サブクエリの例である。"
+        },
+        {
+          "id": "q2-7",
+          "type": "single_choice",
+          "question": "SQLのROLLUP句を使用する目的として最も適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "NULL値を削除する"
+            },
+            {
+              "value": "b",
+              "text": "階層的な集計を行う"
+            },
+            {
+              "value": "c",
+              "text": "トランザクションのロールバックを行う"
+            },
+            {
+              "value": "d",
+              "text": "ビューの更新を可能にする"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ROLLUPは集計関数と併用し、指定された列の階層に従って小計や合計を生成する。"
+        },
+        {
+          "id": "q2-8",
+          "type": "multiple_choice",
+          "question": "次のうち、SQLのインデックスに関して正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "インデックスは検索性能の向上に寄与する"
+            },
+            {
+              "value": "b",
+              "text": "INSERT時の処理性能を向上させる"
+            },
+            {
+              "value": "c",
+              "text": "UNIQUE制約の実現に利用される"
+            },
+            {
+              "value": "d",
+              "text": "全文検索には適さない"
+            },
+            {
+              "value": "e",
+              "text": "インデックスは自動で削除されることがある"
+            }
+          ],
+          "correct": [
+            "a",
+            "c"
+          ],
+          "explanation": "インデックスは検索性能の向上や一意性の保証に役立つが、INSERTやUPDATEでは追加コストがかかる。全文検索用には専用のインデックスが必要。"
+        },
+        {
+          "id": "q2-9",
+          "type": "essay",
+          "question": "JSON型データをSQLで扱う際の利点と懸念点を、利用例とともに300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "柔軟なスキーマ表現が可能になるが、インデックスや正規化、バリデーションの問題に注意が必要である。"
+        },
+        {
+          "id": "q2-11",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-12",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-13",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-14",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-15",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-16",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-17",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-18",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-19",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-20",
+          "type": "single_choice",
+          "question": "次のSQL文のうち、ウィンドウ関数を使用して累積合計を求めているものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT SUM(amount) FROM sales GROUP BY month;"
+            },
+            {
+              "value": "b",
+              "text": "SELECT amount, SUM(amount) OVER (ORDER BY sale_date) FROM sales;"
+            },
+            {
+              "value": "c",
+              "text": "SELECT amount FROM sales WHERE amount > (SELECT AVG(amount) FROM sales);"
+            },
+            {
+              "value": "d",
+              "text": "SELECT * FROM sales WHERE EXISTS (SELECT * FROM refunds WHERE sales.id = refunds.sale_id);"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ウィンドウ関数（OVER句）により累積合計を求めることができる。"
+        },
+        {
+          "id": "q2-20",
+          "type": "essay",
+          "question": "MERGE文の使用例と、業務における具体的な利用シーンについて300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "MERGE文はUPSERTに使われる。データの更新／挿入を同時に行いたい場合に有効。"
         }
       ]
     },
@@ -238,114 +991,481 @@
       "title": "正規化・データモデリング",
       "questions": [
         {
+          "id": "q3-1",
           "type": "single_choice",
-          "question": "第 3 正規形 (3NF) が満たすべき条件として正しいものはどれか。",
+          "question": "第1正規形に正しく正規化されたリレーションの特徴として最も適切なものはどれか。",
           "choices": [
-            { "value": "a", "text": "非キー属性が候補キーに完全関数従属" },
-            { "value": "b", "text": "非キー属性が他の非キー属性に推移従属" },
-            { "value": "c", "text": "全ての決定因子が候補キー" },
-            { "value": "d", "text": "主キーが単一列である" }
+            {
+              "value": "a",
+              "text": "すべての属性がスカラー値である"
+            },
+            {
+              "value": "b",
+              "text": "主キーが複数存在してもよい"
+            },
+            {
+              "value": "c",
+              "text": "関数従属性がすべて除去されている"
+            },
+            {
+              "value": "d",
+              "text": "全ての属性が主キーに従属している"
+            }
           ],
           "correct": "a",
-          "explanation": "3NF は非キー属性が候補キーに完全関数従属し、かつ非キー属性間に推移従属がない状態を指す。"
+          "explanation": "第1正規形では繰り返し属性を排除し、すべての属性がスカラー値（単一の値）でなければならない。"
         },
         {
+          "id": "q3-2",
           "type": "single_choice",
-          "question": "BCNF への変換過程で起こり得る主キーの変化に関する説明として正しいものはどれか。",
+          "question": "次のうち、第2正規形で除去される問題に最も関連するものはどれか。",
           "choices": [
-            { "value": "a", "text": "常に主キーが短縮される" },
-            { "value": "b", "text": "主キーが複数テーブルに分割される場合がある" },
-            { "value": "c", "text": "主キーは変化せずテーブル数だけ増える" },
-            { "value": "d", "text": "主キーが外部キーへ自動的に変換される" }
+            {
+              "value": "a",
+              "text": "関数従属"
+            },
+            {
+              "value": "b",
+              "text": "部分関数従属"
+            },
+            {
+              "value": "c",
+              "text": "推移的関数従属"
+            },
+            {
+              "value": "d",
+              "text": "多値従属"
+            }
           ],
           "correct": "b",
-          "explanation": "BCNF 分解では決定因子を持つ属性群が分離されるため、元の主キーが複数テーブルに分散する場合がある。"
+          "explanation": "第2正規形では、主キーの一部にのみ依存する部分関数従属を除去する。"
         },
         {
+          "id": "q3-3",
           "type": "single_choice",
-          "question": "関数従属性 X→Y が成立する場合の Armstrong 公理に基づく推論として誤っているものはどれか。",
+          "question": "次のうち、BCNF（ボイス・コッド正規形）で除去されるべき関係の特徴として最も適切なものはどれか。",
           "choices": [
-            { "value": "a", "text": "推移律: X→Z かつ Z→Y なら X→Y" },
-            { "value": "b", "text": "拡張律: X→Y なら XZ→YZ" },
-            { "value": "c", "text": "合体律: X→Y および X→Z なら X→YZ" },
-            { "value": "d", "text": "分解律: X→YZ なら X→Z は導けない" }
+            {
+              "value": "a",
+              "text": "すべての関数従属の決定項が候補キーである"
+            },
+            {
+              "value": "b",
+              "text": "一部の関数従属の決定項が候補キーでない"
+            },
+            {
+              "value": "c",
+              "text": "すべての関数従属が推移的従属である"
+            },
+            {
+              "value": "d",
+              "text": "すべての関数従属が冗長である"
+            }
           ],
-          "correct": "d",
-          "explanation": "分解律により X→YZ なら X→Z, X→Y が導けるため「導けない」は誤り。"
+          "correct": "b",
+          "explanation": "BCNFは、すべての関数従属の決定項が候補キーであることを要求する。候補キーでない決定項がある場合、BCNF違反となる。"
         },
         {
+          "id": "q3-4",
           "type": "multiple_choice",
-          "question": "次のうち、第 1 正規形 (1NF) を満たしていない状態の例として該当するものをすべて選べ。",
+          "question": "第3正規形に関する特徴として正しいものをすべて選べ。",
           "choices": [
-            { "value": "a", "text": "列に可変長配列を格納" },
-            { "value": "b", "text": "繰り返し属性を行で表現" },
-            { "value": "c", "text": "複数値属性をカンマ区切りで格納" },
-            { "value": "d", "text": "主キーに NULL 値が存在" },
-            { "value": "e", "text": "列にスカラー値のみを格納" }
+            {
+              "value": "a",
+              "text": "第2正規形を満たしている"
+            },
+            {
+              "value": "b",
+              "text": "推移的関数従属が存在しない"
+            },
+            {
+              "value": "c",
+              "text": "部分関数従属が存在する"
+            },
+            {
+              "value": "d",
+              "text": "候補キー以外の属性が決定項となっている"
+            },
+            {
+              "value": "e",
+              "text": "冗長なデータを許容する"
+            }
           ],
-          "correct": ["a", "c"],
-          "explanation": "1NF では列が原子的である必要があり、配列やカンマ区切りで複数値を格納するのは違反。"
+          "correct": [
+            "a",
+            "b"
+          ],
+          "explanation": "第3正規形は第2正規形を満たし、かつ推移的関数従属を排除する。"
         },
         {
+          "id": "q3-5",
           "type": "essay",
-          "question": "データウェアハウス設計で 3NF ではなくスター・スキーマが採用される理由と利点を具体例を交えて述べよ (300 字以内)。",
+          "question": "実業務で第3正規形まで正規化することの利点と欠点を、それぞれ具体例を交えて300字以内で説明せよ。",
           "correct": "",
-          "explanation": "スター・スキーマは結合が単純で集計クエリが高速化するなど BI ツールと相性が良い。論述で詳細を評価。"
+          "explanation": "第3正規形は冗長性を排除し整合性を保てるが、結合回数が増えパフォーマンスに影響を与える可能性がある。"
         },
         {
+          "id": "q3-6",
           "type": "single_choice",
-          "question": "第3正規形 (3NF) を満たす条件として最も適切なものはどれか。",
+          "question": "関数従属A→Bが存在し、Aが候補キーである場合、Bに関する説明として正しいものはどれか。",
           "choices": [
-            { "value": "a", "text": "非キー属性が候補キーに完全関数従属し、推移従属がない" },
-            { "value": "b", "text": "主キーが単一列である" },
-            { "value": "c", "text": "全ての関数従属性がトリビアルである" },
-            { "value": "d", "text": "多値従属性が存在しない" }
+            {
+              "value": "a",
+              "text": "Bは必ずAに関係なく一意である"
+            },
+            {
+              "value": "b",
+              "text": "BはAの属性値に一意に対応する"
+            },
+            {
+              "value": "c",
+              "text": "BはAと同じ属性である"
+            },
+            {
+              "value": "d",
+              "text": "BはAの部分集合である"
+            }
           ],
-          "correct": "a",
-          "explanation": "3NF は非キー属性が候補キーに完全従属し、非キー属性間の推移従属が排除されている状態をいう。"
+          "correct": "b",
+          "explanation": "関数従属A→Bは、Aの値が決まればBの値も一意に決まることを意味する。"
         },
         {
+          "id": "q3-7",
           "type": "single_choice",
-          "question": "BCNF に正規化する過程で起こり得る現象として適切なものはどれか。",
+          "question": "次のうち、E-R図における多対多の関係を正規化する場合の正しい対応方法はどれか。",
           "choices": [
-            { "value": "a", "text": "テーブルが分割され、元の主キーが複数テーブルに分散する" },
-            { "value": "b", "text": "必ずテーブル数が減少する" },
-            { "value": "c", "text": "すべての外部キー制約が削除される" },
-            { "value": "d", "text": "多値従属性が追加される" }
+            {
+              "value": "a",
+              "text": "主キーを複製する"
+            },
+            {
+              "value": "b",
+              "text": "中間テーブルを導入する"
+            },
+            {
+              "value": "c",
+              "text": "1対1の関係に分割する"
+            },
+            {
+              "value": "d",
+              "text": "全属性を1つのテーブルに統合する"
+            }
           ],
-          "correct": "a",
-          "explanation": "BCNF 分解では決定因子を分離するため、主キーを構成する列が複数テーブルにまたがる場合がある。"
+          "correct": "b",
+          "explanation": "多対多の関係は中間テーブル（交差テーブル）を設けて表現する。"
         },
         {
+          "id": "q3-8",
           "type": "single_choice",
-          "question": "関数従属性 X→Y があるとき、Armstrong 公理によって必ず導ける推論として正しいものはどれか。",
+          "question": "次のうち、正規化を進めすぎた結果として起こりやすい問題はどれか。",
           "choices": [
-            { "value": "a", "text": "拡張律により XZ→YZ が成立する" },
-            { "value": "b", "text": "合体律により Y→X が成立する" },
-            { "value": "c", "text": "分解律により XY→X が成立する" },
-            { "value": "d", "text": "推移律により Z→Y が成立する" }
+            {
+              "value": "a",
+              "text": "データの重複が増える"
+            },
+            {
+              "value": "b",
+              "text": "データの整合性が失われる"
+            },
+            {
+              "value": "c",
+              "text": "結合回数が増えてクエリ性能が低下する"
+            },
+            {
+              "value": "d",
+              "text": "一意性制約を設けられなくなる"
+            }
           ],
-          "correct": "a",
-          "explanation": "拡張律は右辺と左辺両方に同じ属性集合 Z を付加しても従属性が成立することを保証する。"
+          "correct": "c",
+          "explanation": "過度の正規化によりテーブルが細分化され、JOIN回数が増加しパフォーマンス低下を招くことがある。"
         },
         {
+          "id": "q3-9",
           "type": "multiple_choice",
-          "question": "第1正規形 (1NF) を満たしていないテーブル設計例をすべて選べ。",
+          "question": "正規化の目的として正しいものをすべて選べ。",
           "choices": [
-            { "value": "a", "text": "列に配列型で複数値を格納している" },
-            { "value": "b", "text": "複数列を使って複合主キーを構成している" },
-            { "value": "c", "text": "列に可変長文字列を格納している" },
-            { "value": "d", "text": "列にカンマ区切りで値を連結している" },
-            { "value": "e", "text": "テーブルに外部キーが存在する" }
+            {
+              "value": "a",
+              "text": "データの整合性を保つ"
+            },
+            {
+              "value": "b",
+              "text": "データベースのアクセス速度を高める"
+            },
+            {
+              "value": "c",
+              "text": "冗長性を排除する"
+            },
+            {
+              "value": "d",
+              "text": "トランザクション数を増やす"
+            },
+            {
+              "value": "e",
+              "text": "更新時の異常を防ぐ"
+            }
           ],
-          "correct": ["a", "d"],
-          "explanation": "1NF では各列が原子的である必要があり、配列型やカンマ区切りで複数値を格納する設計は違反となる。"
+          "correct": [
+            "a",
+            "c",
+            "e"
+          ],
+          "explanation": "正規化は主に整合性確保・冗長性排除・更新異常の回避を目的とする。"
         },
         {
+          "id": "q3-10",
           "type": "essay",
-          "question": "スター・スキーマとスノーフレーク・スキーマの違いとそれぞれの利点を具体例を交えて300字以内で述べよ。",
+          "question": "データモデリングにおいて主キー選定の考慮点と、自然キーと代理キーの利点・欠点について300字以内で述べよ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "Bは必ずAに関係なく一意である"
+            },
+            {
+              "value": "b",
+              "text": "BはAの属性値に一意に対応する"
+            },
+            {
+              "value": "c",
+              "text": "BはAと同じ属性である"
+            },
+            {
+              "value": "d",
+              "text": "BはAの部分集合である"
+            }
+          ],
           "correct": "",
-          "explanation": "スターは単純な結合で高速集計、スノーフレークは正規化度が高く更新容易など、実運用での使い分けを論述させる。"
+          "explanation": "自然キーは意味を持つが変更リスクがあり、代理キーは安定性があるが業務上の意味を持たないなど、それぞれの特徴がある。"
+        },
+        {
+          "id": "q3-11",
+          "type": "single_choice",
+          "question": "第1正規形の要件として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "すべての非キー属性が候補キーの一部にのみ依存する"
+            },
+            {
+              "value": "b",
+              "text": "すべての非キー属性が候補キー全体に完全関数従属している"
+            },
+            {
+              "value": "c",
+              "text": "非キー属性が他の非キー属性に依存する"
+            },
+            {
+              "value": "d",
+              "text": "すべての属性が主キーである"
+            }
+          ],
+          "correct": "b",
+          "explanation": "第2正規形では、すべての非キー属性が候補キー全体に完全に関数従属している必要がある。"
+        },
+        {
+          "id": "q3-12",
+          "type": "single_choice",
+          "question": "次のうち、第4正規形で取り扱うべきデータ構造上の問題はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "推移的関数従属"
+            },
+            {
+              "value": "b",
+              "text": "多値従属"
+            },
+            {
+              "value": "c",
+              "text": "部分関数従属"
+            },
+            {
+              "value": "d",
+              "text": "候補キーの重複"
+            }
+          ],
+          "correct": "b",
+          "explanation": "第4正規形では多値従属を排除する。これは一つの主キーに対して複数の独立した値が対応する場合。"
+        },
+        {
+          "id": "q3-13",
+          "type": "single_choice",
+          "question": "第5正規形（PJ/NF）における主な目的はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "推移的従属の排除"
+            },
+            {
+              "value": "b",
+              "text": "多値従属の排除"
+            },
+            {
+              "value": "c",
+              "text": "結合従属性の排除"
+            },
+            {
+              "value": "d",
+              "text": "関数従属の排除"
+            }
+          ],
+          "correct": "c",
+          "explanation": "第5正規形では結合従属性（join dependency）を排除し、すべての情報が損失なく再構成できるようにする。"
+        },
+        {
+          "id": "q3-14",
+          "type": "single_choice",
+          "question": "第4正規形の要件として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "すべての非キー属性が候補キーの一部にのみ依存する"
+            },
+            {
+              "value": "b",
+              "text": "すべての非キー属性が候補キー全体に完全関数従属している"
+            },
+            {
+              "value": "c",
+              "text": "非キー属性が他の非キー属性に依存する"
+            },
+            {
+              "value": "d",
+              "text": "すべての属性が主キーである"
+            }
+          ],
+          "correct": "b",
+          "explanation": "第2正規形では、すべての非キー属性が候補キー全体に完全に関数従属している必要がある。"
+        },
+        {
+          "id": "q3-15",
+          "type": "single_choice",
+          "question": "第5正規形の要件として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "すべての非キー属性が候補キーの一部にのみ依存する"
+            },
+            {
+              "value": "b",
+              "text": "すべての非キー属性が候補キー全体に完全関数従属している"
+            },
+            {
+              "value": "c",
+              "text": "非キー属性が他の非キー属性に依存する"
+            },
+            {
+              "value": "d",
+              "text": "すべての属性が主キーである"
+            }
+          ],
+          "correct": "b",
+          "explanation": "第2正規形では、すべての非キー属性が候補キー全体に完全に関数従属している必要がある。"
+        },
+        {
+          "id": "q3-16",
+          "type": "single_choice",
+          "question": "第6正規形の要件として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "すべての非キー属性が候補キーの一部にのみ依存する"
+            },
+            {
+              "value": "b",
+              "text": "すべての非キー属性が候補キー全体に完全関数従属している"
+            },
+            {
+              "value": "c",
+              "text": "非キー属性が他の非キー属性に依存する"
+            },
+            {
+              "value": "d",
+              "text": "すべての属性が主キーである"
+            }
+          ],
+          "correct": "b",
+          "explanation": "第2正規形では、すべての非キー属性が候補キー全体に完全に関数従属している必要がある。"
+        },
+        {
+          "id": "q3-17",
+          "type": "multiple_choice",
+          "question": "次のうち、正規化が適用されたデータモデルの利点として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "冗長性の排除"
+            },
+            {
+              "value": "b",
+              "text": "更新時の整合性確保"
+            },
+            {
+              "value": "c",
+              "text": "物理設計の自由度の向上"
+            },
+            {
+              "value": "d",
+              "text": "問合せ回数の削減"
+            },
+            {
+              "value": "e",
+              "text": "結合演算の不要化"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c"
+          ],
+          "explanation": "正規化は論理整合性の確保と冗長性排除に寄与するが、結合はむしろ必要になるケースが多い。"
+        },
+        {
+          "id": "q3-18",
+          "type": "multiple_choice",
+          "question": "次のうち、データモデリング時に発生する課題として適切なものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "業務要件との乖離"
+            },
+            {
+              "value": "b",
+              "text": "正規化の過不足"
+            },
+            {
+              "value": "c",
+              "text": "ビューの性能問題"
+            },
+            {
+              "value": "d",
+              "text": "インデックスの設計不備"
+            },
+            {
+              "value": "e",
+              "text": "非正規形の過度利用"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "e"
+          ],
+          "explanation": "データモデリングでは、要件との整合性や正規化の程度が重要であり、非正規形の利用にも注意が必要。"
+        },
+        {
+          "id": "q3-19",
+          "type": "essay",
+          "question": "非正規形をあえて採用するケースについて、具体的な業務例を挙げて300字以内で述べよ。",
+          "correct": "",
+          "explanation": "パフォーマンスや柔軟性を優先する場合、非正規形が利用されることがある。"
+        },
+        {
+          "id": "q3-20",
+          "type": "essay",
+          "question": "関数従属と推移的関数従属の違いについて、具体例を交えて説明せよ。",
+          "correct": "",
+          "explanation": "関数従属は1対1対応を表し、推移的従属は中間項を介して従属が成立する場合を指す。"
         }
       ]
     },
@@ -354,114 +1474,468 @@
       "title": "性能・チューニング",
       "questions": [
         {
+          "id": "q4-1",
           "type": "single_choice",
-          "question": "B+ 木インデックスにおいてリーフノードのみを順次走査する操作はどの SQL 句と最も関係が深いか。",
+          "question": "インデックスを活用することで得られる主な利点はどれか。",
           "choices": [
-            { "value": "a", "text": "ORDER BY" },
-            { "value": "b", "text": "GROUP BY" },
-            { "value": "c", "text": "HAVING" },
-            { "value": "d", "text": "DISTINCT" }
-          ],
-          "correct": "a",
-          "explanation": "B+ 木はリーフノードが順序付き連結リストになっているため ORDER BY の実装で効率的な範囲走査が可能。"
-        },
-        {
-          "type": "single_choice",
-          "question": "実行計画で Nested Loop Join が Hash Join より有利になる典型的な条件はどれか。",
-          "choices": [
-            { "value": "a", "text": "両テーブルとも非常に大きい" },
-            { "value": "b", "text": "片方が小さくインデックスが有効" },
-            { "value": "c", "text": "両テーブルが同サイズでソート済み" },
-            { "value": "d", "text": "ディスクフルスキャンが必要" }
-          ],
-          "correct": "b",
-          "explanation": "Nested Loop は外側が小さく内側にインデックスがある場合に最少 I/O で結合できる。"
-        },
-        {
-          "type": "single_choice",
-          "question": "列指向ストレージエンジンが行指向よりも優れる典型的ワークロードはどれか。",
-          "choices": [
-            { "value": "a", "text": "OLTP の INSERT/UPDATE" },
-            { "value": "b", "text": "頻繁なトリガ実行" },
-            { "value": "c", "text": "大量データの集計クエリ" },
-            { "value": "d", "text": "ランダム行単独取得" }
+            {
+              "value": "a",
+              "text": "テーブルの更新速度が向上する"
+            },
+            {
+              "value": "b",
+              "text": "ディスク使用量が削減される"
+            },
+            {
+              "value": "c",
+              "text": "検索条件によるデータ抽出が高速化される"
+            },
+            {
+              "value": "d",
+              "text": "データベースの正規化が進む"
+            }
           ],
           "correct": "c",
-          "explanation": "列指向は必要列のみ連続的に読み込めるため集計・分析系 (OLAP) に特に効果を発揮する。"
+          "explanation": "インデックスは検索条件によるデータ抽出を高速化する。更新処理には逆に影響を与える場合がある。"
         },
         {
-          "type": "multiple_choice",
-          "question": "次のうち、インデックススキャンを避けてシーケンシャルスキャンを選択する要因として RDBMS が考慮するものをすべて選べ。",
-          "choices": [
-            { "value": "a", "text": "インデックスのカーディナリティが低い" },
-            { "value": "b", "text": "統計情報が古い" },
-            { "value": "c", "text": "クエリがワイルドカード前方一致" },
-            { "value": "d", "text": "テーブルが極端に小さい" },
-            { "value": "e", "text": "ヒープ領域が圧縮されている" }
-          ],
-          "correct": ["a", "b", "d"],
-          "explanation": "低カーディナリティや小テーブルではランダム I/O より全スキャンが速いと判断。統計情報不整合も影響。"
-        },
-        {
-          "type": "essay",
-          "question": "レンジパーティショニングとハッシュパーティショニングの特性を比較し、運用面での選択指針を 300 字以内で述べよ。",
-          "correct": "",
-          "explanation": "レンジは時間系列などで均等分布困難だが管理容易、ハッシュは均等分布しやすいが分割管理が複雑。"
-        },
-        {
+          "id": "q4-2",
           "type": "single_choice",
-          "question": "B+木インデックスで範囲検索が効率的に行える理由として正しいものはどれか。",
+          "question": "次のうち、B+木インデックスの特徴として正しいものはどれか。",
           "choices": [
-            { "value": "a", "text": "リーフノードが順序付き連結リストになっているため" },
-            { "value": "b", "text": "各ノードがハッシュ値で管理されているため" },
-            { "value": "c", "text": "インデックスがページキャッシュに常駐するため" },
-            { "value": "d", "text": "ノード分割時に全データが再配置されるため" }
-          ],
-          "correct": "a",
-          "explanation": "B+木はリーフノード同士が連結されており、範囲検索ではリーフを順次辿るだけで済むため高速である。"
-        },
-        {
-          "type": "single_choice",
-          "question": "実行計画でハッシュ結合よりネストループ結合が選択されやすい状況として最も適切なものはどれか。",
-          "choices": [
-            { "value": "a", "text": "外側テーブルが小さく内側テーブルにインデックスがある" },
-            { "value": "b", "text": "両テーブルが巨大でインデックスがない" },
-            { "value": "c", "text": "結合条件が OR 演算のみである" },
-            { "value": "d", "text": "統計情報が存在しない" }
-          ],
-          "correct": "a",
-          "explanation": "ネストループは外側が小さく内側に索引が効く場合、ランダム I/O が少なく最速となる可能性が高い。"
-        },
-        {
-          "type": "single_choice",
-          "question": "列指向ストレージエンジンが行指向より優れる典型的なワークロードはどれか。",
-          "choices": [
-            { "value": "a", "text": "OLTP の頻繁な INSERT/UPDATE" },
-            { "value": "b", "text": "大規模データの集計・分析クエリ" },
-            { "value": "c", "text": "テキスト全文検索" },
-            { "value": "d", "text": "ランダムに 1 行取得するプライマリキー検索" }
+            {
+              "value": "a",
+              "text": "親ノードにデータが格納される"
+            },
+            {
+              "value": "b",
+              "text": "すべての検索はルートから葉までたどる"
+            },
+            {
+              "value": "c",
+              "text": "キーはランダムに格納される"
+            },
+            {
+              "value": "d",
+              "text": "構造は挿入・削除により不変である"
+            }
           ],
           "correct": "b",
-          "explanation": "列指向は必要列のみを連続で読み込めるため、広いテーブルへの集計系読み取りが特に高速化する。"
+          "explanation": "B+木ではすべての検索はルートノードから葉ノードまでをたどる構造をとる。"
         },
         {
-          "type": "multiple_choice",
-          "question": "インデックススキャンではなくシーケンシャルスキャンを RDBMS が選択する要因として適切なものをすべて選べ。",
+          "id": "q4-3",
+          "type": "single_choice",
+          "question": "実行計画に含まれる内容として最も適切なものはどれか。",
           "choices": [
-            { "value": "a", "text": "対象行が全体の高割合を占める" },
-            { "value": "b", "text": "統計情報が古く誤差が大きい" },
-            { "value": "c", "text": "テーブルが非常に小さい" },
-            { "value": "d", "text": "インデックスがクラスタ化されている" },
-            { "value": "e", "text": "WHERE 句がインデックス列で前方一致しない" }
+            {
+              "value": "a",
+              "text": "SQL文の形式"
+            },
+            {
+              "value": "b",
+              "text": "問い合わせの目的"
+            },
+            {
+              "value": "c",
+              "text": "データ取得に使用されるアクセスパス"
+            },
+            {
+              "value": "d",
+              "text": "データベース全体の構成"
+            }
           ],
-          "correct": ["a", "b", "c", "e"],
-          "explanation": "高選択率・小テーブル・統計不整合・索引不適合の条件ではフルスキャンの方がコストが低いと判断される。"
+          "correct": "c",
+          "explanation": "実行計画は、問い合わせを処理する際に使用するインデックスや結合方法などの情報を含む。"
         },
         {
+          "id": "q4-4",
+          "type": "single_choice",
+          "question": "クエリパフォーマンスを改善するための方法として適切でないものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "必要な列だけをSELECT句に指定する"
+            },
+            {
+              "value": "b",
+              "text": "WHERE句で条件を絞り込む"
+            },
+            {
+              "value": "c",
+              "text": "SELECT * を多用する"
+            },
+            {
+              "value": "d",
+              "text": "インデックスの利用を促す条件を使う"
+            }
+          ],
+          "correct": "c",
+          "explanation": "SELECT * は不要な列も含めてしまうため、パフォーマンスの低下を招く可能性がある。"
+        },
+        {
+          "id": "q4-5",
+          "type": "single_choice",
+          "question": "パーティショニングの利点として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "論理的整合性が強化される"
+            },
+            {
+              "value": "b",
+              "text": "検索・集計処理の効率化"
+            },
+            {
+              "value": "c",
+              "text": "外部キー制約が強化される"
+            },
+            {
+              "value": "d",
+              "text": "トリガー処理の簡素化"
+            }
+          ],
+          "correct": "b",
+          "explanation": "パーティショニングにより、特定の範囲のデータに対してだけアクセスできるため、検索や集計の効率が上がる。"
+        },
+        {
+          "id": "q4-6",
+          "type": "single_choice",
+          "question": "ヒント句（ヒント文）に関する記述として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "クエリの構文を修正するために用いる"
+            },
+            {
+              "value": "b",
+              "text": "SQL文に論理演算子を追加する"
+            },
+            {
+              "value": "c",
+              "text": "オプティマイザに実行計画の選択を指示する"
+            },
+            {
+              "value": "d",
+              "text": "トランザクション制御を補助する"
+            }
+          ],
+          "correct": "c",
+          "explanation": "ヒント句はオプティマイザに対して実行計画の選択を意図的に誘導するものである。"
+        },
+        {
+          "id": "q4-7",
+          "type": "multiple_choice",
+          "question": "データベースチューニングにおいて考慮すべき指標として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "CPU使用率"
+            },
+            {
+              "value": "b",
+              "text": "ディスクI/O量"
+            },
+            {
+              "value": "c",
+              "text": "ネットワーク遅延"
+            },
+            {
+              "value": "d",
+              "text": "論理設計書の行数"
+            },
+            {
+              "value": "e",
+              "text": "キャッシュヒット率"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "e"
+          ],
+          "explanation": "チューニングにおいてはリソース使用率やヒット率などが重要。論理設計書の行数は指標ではない。"
+        },
+        {
+          "id": "q4-8",
+          "type": "multiple_choice",
+          "question": "インデックスが有効に機能しないケースとして正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ワイルドカードが前方一致のLIKE"
+            },
+            {
+              "value": "b",
+              "text": "関数を使ってWHERE句で比較"
+            },
+            {
+              "value": "c",
+              "text": "列にNULLが多い"
+            },
+            {
+              "value": "d",
+              "text": "比較演算子で値範囲を指定"
+            },
+            {
+              "value": "e",
+              "text": "大量のデータが更新される"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "e"
+          ],
+          "explanation": "LIKE '%xxx' や関数適用、NULLの多さ、頻繁な更新はインデックスが有効に機能しづらい。"
+        },
+        {
+          "id": "q4-9",
           "type": "essay",
-          "question": "レンジパーティショニングとハッシュパーティショニングの特徴を比較し、運用面での選択指針を300字以内で説明せよ。",
+          "question": "SQLのパフォーマンス劣化に繋がるクエリパターンを具体例を挙げて300字以内で説明せよ。",
           "correct": "",
-          "explanation": "レンジは時系列データで管理容易、ハッシュは均一分散でホットスポット回避など、利点と欠点を比較させる。"
+          "explanation": "非SARGable条件、過剰なJOIN、インデックス未使用などがパフォーマンスを低下させる原因となる。"
+        },
+        {
+          "id": "q4-10",
+          "type": "essay",
+          "question": "データベースでの統計情報の役割と、最新化を怠ることによる影響を説明せよ。",
+          "correct": "",
+          "explanation": "統計情報はオプティマイザが実行計画を選ぶ際の重要な判断材料であり、古いままだと非効率な計画が選ばれる可能性がある。"
+        },
+        {
+          "id": "q4-11",
+          "type": "single_choice",
+          "question": "実行計画でNested Loop Joinが選択されやすい状況はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "両テーブルが非常に大規模な場合"
+            },
+            {
+              "value": "b",
+              "text": "結合キーにインデックスがある場合"
+            },
+            {
+              "value": "c",
+              "text": "結合条件が存在しない場合"
+            },
+            {
+              "value": "d",
+              "text": "メモリ使用量を抑えたい場合"
+            }
+          ],
+          "correct": "b",
+          "explanation": "Nested Loop Joinは片方のテーブルにインデックスがあると効率的に処理できる。"
+        },
+        {
+          "id": "q4-12",
+          "type": "single_choice",
+          "question": "Hash Joinにおいて、ハッシュテーブルに格納されるのは通常どのテーブルか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "より小さいテーブル"
+            },
+            {
+              "value": "b",
+              "text": "より大きいテーブル"
+            },
+            {
+              "value": "c",
+              "text": "ソートされたテーブル"
+            },
+            {
+              "value": "d",
+              "text": "インデックスが設定されたテーブル"
+            }
+          ],
+          "correct": "a",
+          "explanation": "Hash Joinでは、メモリに収まる小さい方のテーブルをハッシュテーブルに格納する。"
+        },
+        {
+          "id": "q4-13",
+          "type": "single_choice",
+          "question": "クエリチューニングの際、使用状況がわかるSQL文の実行分析ツールはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ER図"
+            },
+            {
+              "value": "b",
+              "text": "EXPLAIN"
+            },
+            {
+              "value": "c",
+              "text": "VACUUM"
+            },
+            {
+              "value": "d",
+              "text": "UNION"
+            }
+          ],
+          "correct": "b",
+          "explanation": "EXPLAINを使うことで、実行計画を確認し、ボトルネックを分析できる。"
+        },
+        {
+          "id": "q4-14",
+          "type": "single_choice",
+          "question": "クエリキャッシュが有効に機能する典型的な条件はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "毎回異なるパラメータで実行されるSQL"
+            },
+            {
+              "value": "b",
+              "text": "同一SQLが頻繁に発行される場合"
+            },
+            {
+              "value": "c",
+              "text": "トランザクションが多く発生する場合"
+            },
+            {
+              "value": "d",
+              "text": "INSERT文が連続して実行される場合"
+            }
+          ],
+          "correct": "b",
+          "explanation": "同じSQLが繰り返し実行されるとき、クエリキャッシュが効果を発揮する。"
+        },
+        {
+          "id": "q4-15",
+          "type": "single_choice",
+          "question": "Materialized View（マテリアライズドビュー）の特徴はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "常に最新のデータを保持する"
+            },
+            {
+              "value": "b",
+              "text": "定期的な更新や手動更新が必要"
+            },
+            {
+              "value": "c",
+              "text": "リアルタイムで更新される"
+            },
+            {
+              "value": "d",
+              "text": "データの保持はしない"
+            }
+          ],
+          "correct": "b",
+          "explanation": "マテリアライズドビューは実データを保持するため、更新タイミングの制御が必要となる。"
+        },
+        {
+          "id": "q4-16",
+          "type": "single_choice",
+          "question": "インデックススキャンが利用されにくくなるSQL構文はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "WHERE句に列名 = 値の形式"
+            },
+            {
+              "value": "b",
+              "text": "WHERE句に関数適用"
+            },
+            {
+              "value": "c",
+              "text": "ORDER BY句の指定"
+            },
+            {
+              "value": "d",
+              "text": "GROUP BYの使用"
+            }
+          ],
+          "correct": "b",
+          "explanation": "WHERE句で関数を使うとインデックスが活用されにくくなる。"
+        },
+        {
+          "id": "q4-17",
+          "type": "multiple_choice",
+          "question": "結合処理におけるハッシュ結合の特徴として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "結合キーにインデックスがなくても動作する"
+            },
+            {
+              "value": "b",
+              "text": "大規模データ間でも高速に結合できる"
+            },
+            {
+              "value": "c",
+              "text": "ハッシュ値に基づく一致確認を行う"
+            },
+            {
+              "value": "d",
+              "text": "必ず主キーとの結合に使う"
+            },
+            {
+              "value": "e",
+              "text": "メモリに小さいテーブルを展開する必要がある"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "e"
+          ],
+          "explanation": "ハッシュ結合はインデックス不要で、大規模データにも適用可能だが、片方のテーブルをメモリに展開する必要がある。"
+        },
+        {
+          "id": "q4-18",
+          "type": "multiple_choice",
+          "question": "実行計画におけるコストが高くなる要因として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "テーブルのフルスキャン"
+            },
+            {
+              "value": "b",
+              "text": "インデックススキャンの誤使用"
+            },
+            {
+              "value": "c",
+              "text": "結合回数の増加"
+            },
+            {
+              "value": "d",
+              "text": "統計情報の未更新"
+            },
+            {
+              "value": "e",
+              "text": "ビューの参照"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "explanation": "フルスキャンや不要なインデックス使用、結合の増加、統計情報の未更新はコスト増に繋がる。"
+        },
+        {
+          "id": "q4-19",
+          "type": "essay",
+          "question": "ビューとマテリアライズドビューの違いについて、300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "ビューは都度参照時に評価され、マテリアライズドビューは実体として保持される。"
+        },
+        {
+          "id": "q4-20",
+          "type": "essay",
+          "question": "SQL文が遅い原因を特定する手順と、それに基づいた改善案を300字以内で述べよ。",
+          "correct": "",
+          "explanation": "EXPLAINで実行計画を確認し、インデックスの有無や結合方法、フィルター条件を調整することが改善につながる。"
         }
       ]
     },
@@ -470,114 +1944,466 @@
       "title": "セキュリティ",
       "questions": [
         {
+          "id": "q5-1",
           "type": "single_choice",
-          "question": "SQL インジェクション対策として推奨されるプリペアドステートメントの特徴はどれか。",
+          "question": "SQLインジェクション対策として最も基本的な方法はどれか。",
           "choices": [
-            { "value": "a", "text": "SQL 文字列を動的連結して実行" },
-            { "value": "b", "text": "パラメータを事前コンパイルし型検査する" },
-            { "value": "c", "text": "入力を HTML エスケープする" },
-            { "value": "d", "text": "データベース側で権限昇格を行う" }
+            {
+              "value": "a",
+              "text": "データベースのバックアップを頻繁に取得する"
+            },
+            {
+              "value": "b",
+              "text": "入力値をプリペアドステートメントで処理する"
+            },
+            {
+              "value": "c",
+              "text": "SELECT文を使用しない"
+            },
+            {
+              "value": "d",
+              "text": "Webサーバのログを定期的に確認する"
+            }
           ],
           "correct": "b",
-          "explanation": "プリペアドステートメントは構文解析済みの SQL にパラメータをバインドし、文字列連結を排除することで注入を防止する。"
+          "explanation": "プリペアドステートメントを使うことで、入力値をSQLとして解釈させないようにする。"
         },
         {
+          "id": "q5-2",
           "type": "single_choice",
-          "question": "透過的データ暗号化 (TDE) を導入する主目的として適切なものはどれか。",
+          "question": "次のうち、アクセス制御方式のうちロールベースアクセス制御(RBAC)に該当するのはどれか。",
           "choices": [
-            { "value": "a", "text": "SQL 実行速度を向上" },
-            { "value": "b", "text": "ディスク盗難時のデータ漏えい防止" },
-            { "value": "c", "text": "ユーザパスワード簡略化" },
-            { "value": "d", "text": "メモリ使用量削減" }
+            {
+              "value": "a",
+              "text": "ユーザ単位で明示的に許可を与える"
+            },
+            {
+              "value": "b",
+              "text": "データへのアクセス記録を残す"
+            },
+            {
+              "value": "c",
+              "text": "ユーザに割り当てた役割に応じて権限を与える"
+            },
+            {
+              "value": "d",
+              "text": "アクセスが失敗した回数を記録する"
+            }
+          ],
+          "correct": "c",
+          "explanation": "RBACではユーザにロールを割り当て、そのロールに基づいてアクセス権を付与する。"
+        },
+        {
+          "id": "q5-3",
+          "type": "single_choice",
+          "question": "暗号化通信に使用されるSSL/TLSの主な目的はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ファイルの圧縮"
+            },
+            {
+              "value": "b",
+              "text": "サーバの高速化"
+            },
+            {
+              "value": "c",
+              "text": "通信内容の盗聴防止"
+            },
+            {
+              "value": "d",
+              "text": "トランザクション処理の効率化"
+            }
+          ],
+          "correct": "c",
+          "explanation": "SSL/TLSは通信内容を暗号化し、第三者による盗聴を防ぐ技術である。"
+        },
+        {
+          "id": "q5-4",
+          "type": "single_choice",
+          "question": "データベースにおける監査ログの目的として最も適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ディスク容量の節約"
+            },
+            {
+              "value": "b",
+              "text": "アクセス操作の記録と追跡"
+            },
+            {
+              "value": "c",
+              "text": "バックアップ頻度の低減"
+            },
+            {
+              "value": "d",
+              "text": "ネットワーク通信の高速化"
+            }
           ],
           "correct": "b",
-          "explanation": "TDE はストレージ上のデータを暗号化し、ディスクやバックアップ媒体流出時に平文漏えいを防ぐ。"
+          "explanation": "監査ログはユーザの操作履歴を記録し、不正アクセスの検出や追跡に使用される。"
         },
         {
+          "id": "q5-5",
           "type": "single_choice",
-          "question": "データベース監査ログ設計において「不可否認性」を高める施策として最も適切なのはどれか。",
+          "question": "次のうち、SQLインジェクション攻撃に該当するものはどれか。",
           "choices": [
-            { "value": "a", "text": "ログファイルを gzip 圧縮" },
-            { "value": "b", "text": "ハッシュチェーンや署名で改ざん検知" },
-            { "value": "c", "text": "ログを 1 週間ごとに削除" },
-            { "value": "d", "text": "アクセス数をサンプリングして記録" }
+            {
+              "value": "a",
+              "text": "フォームのパスワード入力欄を連打する"
+            },
+            {
+              "value": "b",
+              "text": "HTMLにJavaScriptコードを埋め込む"
+            },
+            {
+              "value": "c",
+              "text": "入力値に ' OR '1'='1 を含めてログインを試みる"
+            },
+            {
+              "value": "d",
+              "text": "画像ファイルを大量アップロードする"
+            }
+          ],
+          "correct": "c",
+          "explanation": "SQLインジェクションではSQL構文を不正に挿入することで、意図しない動作を引き起こす。"
+        },
+        {
+          "id": "q5-6",
+          "type": "single_choice",
+          "question": "公開鍵暗号方式における公開鍵の使用目的として適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "データベースの最適化"
+            },
+            {
+              "value": "b",
+              "text": "受信者のみが復号できるように暗号化する"
+            },
+            {
+              "value": "c",
+              "text": "送信者の署名を生成する"
+            },
+            {
+              "value": "d",
+              "text": "復号専用に使用される"
+            }
           ],
           "correct": "b",
-          "explanation": "ログ改ざんを検知・防止するハッシュチェーンや電子署名は不可否認性の確保に不可欠。"
+          "explanation": "公開鍵は暗号化に使用され、秘密鍵を持つ受信者のみが復号できる。"
         },
         {
+          "id": "q5-7",
           "type": "multiple_choice",
-          "question": "ロールベースアクセス制御 (RBAC) の利点として正しいものをすべて選べ。",
+          "question": "SQLインジェクションへの有効な対策として正しいものをすべて選べ。",
           "choices": [
-            { "value": "a", "text": "最小権限の実現を容易にする" },
-            { "value": "b", "text": "個別ユーザへ直接権限付与が不要" },
-            { "value": "c", "text": "動的属性による細粒度制御が容易" },
-            { "value": "d", "text": "人員変更時の権限管理が簡素" },
-            { "value": "e", "text": "コンテキスト依存制御が標準で可能" }
+            {
+              "value": "a",
+              "text": "プリペアドステートメントの使用"
+            },
+            {
+              "value": "b",
+              "text": "入力値のサニタイズ"
+            },
+            {
+              "value": "c",
+              "text": "動的SQLの多用"
+            },
+            {
+              "value": "d",
+              "text": "アプリケーション層での入力バリデーション"
+            },
+            {
+              "value": "e",
+              "text": "すべての入力値をHTMLエスケープする"
+            }
           ],
-          "correct": ["a", "b", "d"],
-          "explanation": "RBAC はロールを介して権限を集約し、最小権限を保ちつつユーザ管理を簡素化できる。属性依存制御は ABAC の範囲。"
-        },
-        {
-          "type": "essay",
-          "question": "データベースの列レベル暗号化と透過的データ暗号化 (TDE) の違いを比較し、選択時の判断基準を説明せよ (300 字以内)。",
-          "correct": "",
-          "explanation": "列暗号はきめ細かい制御が可能だがアプリ修正が必要、TDE は運用容易だが列単位制御は不可などの比較を論述させる。"
-        },
-        {
-          "type": "single_choice",
-          "question": "プリペアドステートメントが SQL インジェクション対策として有効な理由はどれか。",
-          "choices": [
-            { "value": "a", "text": "SQL の構文解析をパラメータバインド前に済ませるため" },
-            { "value": "b", "text": "入力値を自動で HTML エスケープするため" },
-            { "value": "c", "text": "DB セッションを暗号化するため" },
-            { "value": "d", "text": "実行計画をキャッシュしないため" }
+          "correct": [
+            "a",
+            "b",
+            "d"
           ],
-          "correct": "a",
-          "explanation": "プリペアドは SQL を事前コンパイルし、ユーザ入力は単なるパラメータとして扱うため、構文改変が不可能になる。"
+          "explanation": "SQLインジェクション対策には、プリペアドステートメント、入力値のチェック、アプリケーションレベルの対策が有効である。"
         },
         {
-          "type": "single_choice",
-          "question": "透過的データ暗号化 (TDE) の主な導入目的として正しいものはどれか。",
-          "choices": [
-            { "value": "a", "text": "ディスク盗難時のデータ漏えい防止" },
-            { "value": "b", "text": "ユーザ認証の高速化" },
-            { "value": "c", "text": "SQL 文の実行速度向上" },
-            { "value": "d", "text": "全文検索機能の向上" }
-          ],
-          "correct": "a",
-          "explanation": "TDE はストレージ上のデータを暗号化し、ディスクやバックアップ媒体が流出しても平文を守ることが目的である。"
-        },
-        {
-          "type": "single_choice",
-          "question": "監査ログの不可否認性を高める方法として最も適切なものはどれか。",
-          "choices": [
-            { "value": "a", "text": "ログにハッシュチェーンや電子署名を付与し改ざん検知を行う" },
-            { "value": "b", "text": "ログを1日ごとに削除して容量を減らす" },
-            { "value": "c", "text": "ログを gzip 圧縮して保存する" },
-            { "value": "d", "text": "ログ出力先を /tmp に設定する" }
-          ],
-          "correct": "a",
-          "explanation": "ハッシュや署名でログ改ざんを検出・防止することが不可否認性確保の基本である。"
-        },
-        {
+          "id": "q5-8",
           "type": "multiple_choice",
-          "question": "ロールベースアクセス制御 (RBAC) の利点として正しいものをすべて選べ。",
+          "question": "データベースにおけるアクセス制御方式として正しいものをすべて選べ。",
           "choices": [
-            { "value": "a", "text": "最小権限原則を適用しやすい" },
-            { "value": "b", "text": "人事異動時の権限変更が容易" },
-            { "value": "c", "text": "ユーザに直接権限を付与するため設定がシンプル" },
-            { "value": "d", "text": "ロール単位で監査が行いやすい" },
-            { "value": "e", "text": "暗号鍵管理が不要になる" }
+            {
+              "value": "a",
+              "text": "MAC（強制アクセス制御）"
+            },
+            {
+              "value": "b",
+              "text": "DAC（任意アクセス制御）"
+            },
+            {
+              "value": "c",
+              "text": "RBAC（ロールベースアクセス制御）"
+            },
+            {
+              "value": "d",
+              "text": "SAC（セッションベースアクセス制御）"
+            },
+            {
+              "value": "e",
+              "text": "PAC（プロセスアクセス制御）"
+            }
           ],
-          "correct": ["a", "b", "d"],
-          "explanation": "RBAC は権限をロールに集約しユーザをロールに割り当てるため、権限管理と監査が簡素化され最小権限を保ちやすい。"
+          "correct": [
+            "a",
+            "b",
+            "c"
+          ],
+          "explanation": "MAC・DAC・RBACはいずれも代表的なアクセス制御方式である。"
         },
         {
+          "id": "q5-9",
           "type": "essay",
-          "question": "列レベル暗号化と透過的データ暗号化 (TDE) の相違点と選択基準について300字以内で説明せよ。",
+          "question": "データベースにおける監査ログの重要性と、その活用方法について300字以内で説明せよ。",
           "correct": "",
-          "explanation": "列暗号は細粒度制御が可能だがアプリ改修が必要、TDE は導入が容易だが列単位制御不可など、使い分けの観点を論述させる。"
+          "explanation": "監査ログはアクセス記録を残すことで、不正検知・事後追跡・コンプライアンス対応に役立つ。"
+        },
+        {
+          "id": "q5-10",
+          "type": "essay",
+          "question": "暗号化された通信とデータベースへのアクセスにおけるセキュリティ強化策について、具体例を挙げて300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "SSL/TLSによる通信路の暗号化、DBアクセス制限、パスワードポリシー、IP制限などがある。"
+        },
+        {
+          "id": "q5-11",
+          "type": "single_choice",
+          "question": "パスワード管理において、安全性を高める方法として最も適切なのはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "定期的にパスワードを共有する"
+            },
+            {
+              "value": "b",
+              "text": "パスワードを平文で保存する"
+            },
+            {
+              "value": "c",
+              "text": "ソルト付きハッシュ化して保存する"
+            },
+            {
+              "value": "d",
+              "text": "パスワードをブラウザに保存する"
+            }
+          ],
+          "correct": "c",
+          "explanation": "パスワードはソルトを用いたハッシュ化で保存することで漏洩時のリスクを軽減できる。"
+        },
+        {
+          "id": "q5-12",
+          "type": "single_choice",
+          "question": "データベースにおいて、最小権限の原則（Principle of Least Privilege）が意味することはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "全ユーザに管理者権限を与える"
+            },
+            {
+              "value": "b",
+              "text": "ユーザに必要最小限の権限のみ与える"
+            },
+            {
+              "value": "c",
+              "text": "すべてのユーザを一つのロールにまとめる"
+            },
+            {
+              "value": "d",
+              "text": "アクセスログを残さない"
+            }
+          ],
+          "correct": "b",
+          "explanation": "最小権限の原則とは、ユーザに必要最低限の権限のみを付与し、セキュリティリスクを下げる設計原則である。"
+        },
+        {
+          "id": "q5-13",
+          "type": "single_choice",
+          "question": "データベースに対するDoS攻撃への対策として適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "IPアドレス制限や接続数制限を行う"
+            },
+            {
+              "value": "b",
+              "text": "すべてのデータを公開する"
+            },
+            {
+              "value": "c",
+              "text": "ログを削除する"
+            },
+            {
+              "value": "d",
+              "text": "CPU使用率を制限しない"
+            }
+          ],
+          "correct": "a",
+          "explanation": "DoS攻撃対策としては、IP制限や同時接続数制限、レートリミットなどの設定が有効である。"
+        },
+        {
+          "id": "q5-14",
+          "type": "single_choice",
+          "question": "多要素認証（MFA）の構成要素に含まれないものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "知識要素（パスワード）"
+            },
+            {
+              "value": "b",
+              "text": "所持要素（スマートフォン）"
+            },
+            {
+              "value": "c",
+              "text": "生体要素（指紋など）"
+            },
+            {
+              "value": "d",
+              "text": "ユーザの所属部署"
+            }
+          ],
+          "correct": "d",
+          "explanation": "MFAは「知識」「所持」「生体」など複数の認証要素を組み合わせて本人確認を強化する。"
+        },
+        {
+          "id": "q5-15",
+          "type": "single_choice",
+          "question": "SQLインジェクションの検出方法として有効なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "セッション情報を暗号化する"
+            },
+            {
+              "value": "b",
+              "text": "エラーログやアクセスログの監視"
+            },
+            {
+              "value": "c",
+              "text": "ファイルシステムの暗号化"
+            },
+            {
+              "value": "d",
+              "text": "GUIベースの管理ツールを使用する"
+            }
+          ],
+          "correct": "b",
+          "explanation": "不正なパラメータや想定外のSQLが実行された場合のログを監視することで検出可能となる。"
+        },
+        {
+          "id": "q5-16",
+          "type": "single_choice",
+          "question": "アクセスログから不正アクセスを早期発見するために重要なのはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "定期的なログの監査"
+            },
+            {
+              "value": "b",
+              "text": "ログを保存しない"
+            },
+            {
+              "value": "c",
+              "text": "ログを暗号化しない"
+            },
+            {
+              "value": "d",
+              "text": "1年に1回だけログを確認する"
+            }
+          ],
+          "correct": "a",
+          "explanation": "定期的にログを監査することで、早期に異常を発見することができる。"
+        },
+        {
+          "id": "q5-17",
+          "type": "multiple_choice",
+          "question": "暗号化の目的として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "データの秘匿性の確保"
+            },
+            {
+              "value": "b",
+              "text": "データの完全性の検証"
+            },
+            {
+              "value": "c",
+              "text": "通信の傍受防止"
+            },
+            {
+              "value": "d",
+              "text": "パフォーマンスの向上"
+            },
+            {
+              "value": "e",
+              "text": "送信者の認証"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "e"
+          ],
+          "explanation": "暗号化は主に秘匿性、完全性、認証、傍受防止の目的で用いられる。"
+        },
+        {
+          "id": "q5-18",
+          "type": "multiple_choice",
+          "question": "データベースへの不正アクセスを防止するための対策として有効なものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SQL文のログ出力"
+            },
+            {
+              "value": "b",
+              "text": "アカウントごとの接続制限"
+            },
+            {
+              "value": "c",
+              "text": "ファイアウォールによる接続制御"
+            },
+            {
+              "value": "d",
+              "text": "スーパーユーザ権限の一元化"
+            },
+            {
+              "value": "e",
+              "text": "OSのアップデートの停止"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "explanation": "接続制限・ログ監視・権限制御・ネットワーク制御などは不正アクセスの対策となる。"
+        },
+        {
+          "id": "q5-19",
+          "type": "essay",
+          "question": "データベースのパスワード管理におけるリスクと、それを軽減するための対策について300字以内で述べよ。",
+          "correct": "",
+          "explanation": "パスワードの平文保存、使い回し、弱いパスワードはリスクとなる。ソルト付きハッシュ化や長く複雑なパスワードが対策となる。"
+        },
+        {
+          "id": "q5-20",
+          "type": "essay",
+          "question": "アクセス制御の実装時におけるRBACの利点と注意点について、300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "RBACはユーザごとに権限を設定せずに済む利点があるが、ロール設計を慎重に行わないと過剰な権限を許すリスクがある。"
         }
       ]
     },
@@ -586,114 +2412,465 @@
       "title": "トランザクション・同期処理",
       "questions": [
         {
+          "id": "q6-1",
           "type": "single_choice",
-          "question": "ACID 特性のうち『一貫性 (Consistency)』が保証するものとして正しい説明はどれか。",
+          "question": "トランザクションのACID特性のうち、「一貫性 (Consistency)」に該当する説明はどれか。",
           "choices": [
-            { "value": "a", "text": "同時実行時に結果が直列化可能" },
-            { "value": "b", "text": "トランザクション完了時に整合制約が満たされる" },
-            { "value": "c", "text": "障害時にロールバック可能" },
-            { "value": "d", "text": "部分コミットが許可される" }
+            {
+              "value": "a",
+              "text": "処理がすべて完了するか、何も反映されないこと"
+            },
+            {
+              "value": "b",
+              "text": "同時実行でも結果が直列化可能であること"
+            },
+            {
+              "value": "c",
+              "text": "整合性制約を満たす状態に保たれること"
+            },
+            {
+              "value": "d",
+              "text": "トランザクションが永続的に保存されること"
+            }
+          ],
+          "correct": "c",
+          "explanation": "一貫性は、トランザクション後も整合性制約が保たれていることを意味する。"
+        },
+        {
+          "id": "q6-2",
+          "type": "single_choice",
+          "question": "次のうち、デッドロックが発生する可能性がある状況として最も適切なのはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "1つのトランザクションが1つの行だけをロックする場合"
+            },
+            {
+              "value": "b",
+              "text": "複数のトランザクションが互いにリソースを待ち合っている場合"
+            },
+            {
+              "value": "c",
+              "text": "コミットを行う前に全ての処理が終了している場合"
+            },
+            {
+              "value": "d",
+              "text": "トランザクションの分離レベルが低い場合"
+            }
           ],
           "correct": "b",
-          "explanation": "一貫性はトランザクション前後で DB が定義された整合制約を常に満たすことを意味する。"
+          "explanation": "複数のトランザクションが互いにロックしたリソースを待っていると、デッドロックが発生する。"
         },
         {
+          "id": "q6-3",
           "type": "single_choice",
-          "question": "行レベルロックで共有ロック (S ロック) を保持しているトランザクションが行える操作はどれか。",
+          "question": "トランザクションの分離レベル「READ COMMITTED」で防止できる問題はどれか。",
           "choices": [
-            { "value": "a", "text": "行の SELECT" },
-            { "value": "b", "text": "行の UPDATE" },
-            { "value": "c", "text": "行の DELETE" },
-            { "value": "d", "text": "行の ALTER" }
+            {
+              "value": "a",
+              "text": "ダーティリード"
+            },
+            {
+              "value": "b",
+              "text": "ファントムリード"
+            },
+            {
+              "value": "c",
+              "text": "リピートリード"
+            },
+            {
+              "value": "d",
+              "text": "すべての読み取りに対する一貫性確保"
+            }
           ],
           "correct": "a",
-          "explanation": "共有ロックは読み取り専用アクセスを許可し、書き込み操作を排他する。"
+          "explanation": "READ COMMITTEDでは、未コミットのデータの読み取り（ダーティリード）を防止できる。"
         },
         {
+          "id": "q6-4",
           "type": "single_choice",
-          "question": "デッドロックが発生した場合、ほとんどの RDBMS が採用する解決策はどれか。",
+          "question": "2フェーズロック（2PL）の特徴として正しいものはどれか。",
           "choices": [
-            { "value": "a", "text": "待ち続けてユーザ介入を待つ" },
-            { "value": "b", "text": "最長待機トランザクションを強制ロールバック" },
-            { "value": "c", "text": "全トランザクションをロールバック" },
-            { "value": "d", "text": "ロック昇格を自動実行" }
+            {
+              "value": "a",
+              "text": "ロックは逐次取得・解放を繰り返す"
+            },
+            {
+              "value": "b",
+              "text": "ロックの取得と解放を2段階に分けて制御する"
+            },
+            {
+              "value": "c",
+              "text": "ロック解放前に新たなロックを取得できる"
+            },
+            {
+              "value": "d",
+              "text": "トランザクションのコミットに関係なくすぐにロックが解放される"
+            }
           ],
           "correct": "b",
-          "explanation": "多くの DB ではデッドロック検出後、犠牲者選択アルゴリズムで特定トランザクションをロールバックする。"
+          "explanation": "2PLは、取得フェーズと解放フェーズを明確に分離し、直列化可能性を保証する。"
         },
         {
+          "id": "q6-5",
+          "type": "single_choice",
+          "question": "トランザクションログの主な用途として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "問い合わせ結果のキャッシュ"
+            },
+            {
+              "value": "b",
+              "text": "SQL構文の整形"
+            },
+            {
+              "value": "c",
+              "text": "障害時のリカバリ"
+            },
+            {
+              "value": "d",
+              "text": "データベースの自動拡張"
+            }
+          ],
+          "correct": "c",
+          "explanation": "トランザクションログは、障害時のロールフォワードやロールバックに用いられる。"
+        },
+        {
+          "id": "q6-6",
+          "type": "single_choice",
+          "question": "トランザクションの「原子性」が意味することはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "操作が順番に実行されること"
+            },
+            {
+              "value": "b",
+              "text": "トランザクションのすべての処理が成功するか、すべて取り消されること"
+            },
+            {
+              "value": "c",
+              "text": "読み取り専用であること"
+            },
+            {
+              "value": "d",
+              "text": "読み取りと書き込みを交互に行うこと"
+            }
+          ],
+          "correct": "b",
+          "explanation": "原子性は、トランザクションがすべて完了するか、まったく反映されないことを保証する。"
+        },
+        {
+          "id": "q6-7",
           "type": "multiple_choice",
-          "question": "トランザクション分離レベル READ COMMITTED で発生し得る現象をすべて選べ。",
+          "question": "トランザクション分離レベル「SERIALIZABLE」が防止できる問題として正しいものをすべて選べ。",
           "choices": [
-            { "value": "a", "text": "ダーティリード" },
-            { "value": "b", "text": "ノンリピータブルリード" },
-            { "value": "c", "text": "ファントムリード" },
-            { "value": "d", "text": "ロストアップデート" },
-            { "value": "e", "text": "シリアライザブルアノマリ" }
+            {
+              "value": "a",
+              "text": "ダーティリード"
+            },
+            {
+              "value": "b",
+              "text": "リピートリード"
+            },
+            {
+              "value": "c",
+              "text": "ファントムリード"
+            },
+            {
+              "value": "d",
+              "text": "デッドロック"
+            },
+            {
+              "value": "e",
+              "text": "ロストアップデート"
+            }
           ],
-          "correct": ["b", "c", "d"],
-          "explanation": "RC ではコミット済みデータのみ読めるためダーティリードは防止されるが、NRR・ファントム・ロストアップデートは起こり得る。"
-        },
-        {
-          "type": "essay",
-          "question": "分散トランザクションで 2PC (二相コミット) が採用される理由と、その欠点をフォールトトレラント設計の観点で論じよ (300 字以内)。",
-          "correct": "",
-          "explanation": "2PC は原子性を保証するがコーディネータ障害時にブロッキング、遅延などが問題となるため解説させる。"
-        },
-        {
-          "type": "single_choice",
-          "question": "ACID 特性の一つである一貫性 (Consistency) が保証する内容として最も適切なものはどれか。",
-          "choices": [
-            { "value": "a", "text": "トランザクション開始前に設定された整合制約が完了後も満たされる" },
-            { "value": "b", "text": "同時実行時に結果が直列化可能になる" },
-            { "value": "c", "text": "システム障害時にロールバック可能になる" },
-            { "value": "d", "text": "複数データベース間で即時同期が行われる" }
+          "correct": [
+            "a",
+            "b",
+            "c"
           ],
-          "correct": "a",
-          "explanation": "一貫性はトランザクションの実行前後でデータベースが定義された整合制約を常に満たすことを保証する。"
+          "explanation": "SERIALIZABLEは最も厳格な分離レベルで、ダーティリード、リピートリード、ファントムリードを防ぐ。"
         },
         {
-          "type": "single_choice",
-          "question": "共有ロック (Sロック) を取得した行に対して他トランザクションが行える操作として正しいものはどれか。",
-          "choices": [
-            { "value": "a", "text": "同じ行の SELECT" },
-            { "value": "b", "text": "同じ行の UPDATE" },
-            { "value": "c", "text": "同じ行の DELETE" },
-            { "value": "d", "text": "同じ行への排他ロック獲得" }
-          ],
-          "correct": "a",
-          "explanation": "共有ロックは読取り専用アクセスを許可し書込みを排他するため、SELECT のみが許容される。"
-        },
-        {
-          "type": "single_choice",
-          "question": "一般的な RDBMS がデッドロックを解消する際に用いる方法として最も適切なものはどれか。",
-          "choices": [
-            { "value": "a", "text": "循環待ちを検出し一方のトランザクションをロールバックする" },
-            { "value": "b", "text": "全トランザクションを一斉ロールバックする" },
-            { "value": "c", "text": "ユーザ介入を待って処理を継続する" },
-            { "value": "d", "text": "ロック昇格を強制的に行う" }
-          ],
-          "correct": "a",
-          "explanation": "犠牲者選択アルゴリズムで循環待ちの一方をロールバックし、残りを継続させるのが一般的である。"
-        },
-        {
+          "id": "q6-8",
           "type": "multiple_choice",
-          "question": "トランザクション分離レベル READ COMMITTED で発生し得る現象をすべて選べ。",
+          "question": "次のうち、トランザクションの整合性を確保するために必要な要素をすべて選べ。",
           "choices": [
-            { "value": "a", "text": "ダーティリード" },
-            { "value": "b", "text": "ノンリピータブルリード" },
-            { "value": "c", "text": "ファントムリード" },
-            { "value": "d", "text": "ロストアップデート" },
-            { "value": "e", "text": "シリアライザブルアノマリ" }
+            {
+              "value": "a",
+              "text": "適切なロック制御"
+            },
+            {
+              "value": "b",
+              "text": "トランザクションログの記録"
+            },
+            {
+              "value": "c",
+              "text": "冗長なSQL文"
+            },
+            {
+              "value": "d",
+              "text": "分離レベルの設定"
+            },
+            {
+              "value": "e",
+              "text": "キャッシュの無効化"
+            }
           ],
-          "correct": ["b", "c", "d"],
-          "explanation": "READ COMMITTED はコミット済みのみ読めるためダーティリードは防止されるが、NRR・ファントム・ロストアップデートは防げない。"
+          "correct": [
+            "a",
+            "b",
+            "d"
+          ],
+          "explanation": "ロック制御、ログ記録、分離レベル設定がトランザクションの整合性確保に必要。"
         },
         {
+          "id": "q6-9",
           "type": "essay",
-          "question": "分散トランザクションで二相コミット (2PC) が採用される理由と、その欠点をフォールトトレラント設計の観点から300字以内で論じよ。",
+          "question": "デッドロックの発生原因と、それを回避または解消するための手法について300字以内で説明せよ。",
           "correct": "",
-          "explanation": "2PC は原子性を保証するがコーディネータ障害時のブロッキングや遅延などが欠点であり、フォールトトレランスには補完策が必要となる。"
+          "explanation": "互いにロックを取り合って待ち続けることで発生。タイムアウト、ロック順序の統一、デッドロック検出機能の活用などが対策。"
+        },
+        {
+          "id": "q6-10",
+          "type": "essay",
+          "question": "ACID特性の4つの要素について、それぞれの意味と重要性を300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "原子性、整合性、独立性、永続性の特性があり、信頼性の高いトランザクション処理を実現するために必要。"
+        },
+        {
+          "id": "q6-11",
+          "type": "single_choice",
+          "question": "READ UNCOMMITTED 分離レベルにおける問題点として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ファントムリードが発生しない"
+            },
+            {
+              "value": "b",
+              "text": "ダーティリードが発生する"
+            },
+            {
+              "value": "c",
+              "text": "整合性制約を強制する"
+            },
+            {
+              "value": "d",
+              "text": "デッドロックを防ぐ"
+            }
+          ],
+          "correct": "b",
+          "explanation": "READ UNCOMMITTEDでは、他のトランザクションがコミットしていないデータを読み取ってしまう（ダーティリード）。"
+        },
+        {
+          "id": "q6-12",
+          "type": "single_choice",
+          "question": "MVCC（Multi-Version Concurrency Control）を利用する目的はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "読み取り時にロックを強制する"
+            },
+            {
+              "value": "b",
+              "text": "すべてのトランザクションで最新のデータを共有する"
+            },
+            {
+              "value": "c",
+              "text": "読み取り処理と書き込み処理を競合なく並行させる"
+            },
+            {
+              "value": "d",
+              "text": "トランザクションを逐次実行する"
+            }
+          ],
+          "correct": "c",
+          "explanation": "MVCCはスナップショットを用いることで読み取りと書き込みの競合を回避し、並行性を高める。"
+        },
+        {
+          "id": "q6-13",
+          "type": "single_choice",
+          "question": "ロック待ちによってシステム全体のスループットが低下する現象を何というか？",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ロストアップデート"
+            },
+            {
+              "value": "b",
+              "text": "デッドロック"
+            },
+            {
+              "value": "c",
+              "text": "スラッシング"
+            },
+            {
+              "value": "d",
+              "text": "スケーラビリティ"
+            }
+          ],
+          "correct": "b",
+          "explanation": "トランザクションが互いのロック解放を待って停止状態になることでスループットが著しく低下する。"
+        },
+        {
+          "id": "q6-14",
+          "type": "single_choice",
+          "question": "排他制御が行われない場合に発生しうる現象はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "リピートリードの防止"
+            },
+            {
+              "value": "b",
+              "text": "整合性の確保"
+            },
+            {
+              "value": "c",
+              "text": "ロストアップデート"
+            },
+            {
+              "value": "d",
+              "text": "直列化可能性の保証"
+            }
+          ],
+          "correct": "c",
+          "explanation": "排他制御がないと同時に更新処理が走り、最後の更新だけが反映されるロストアップデートが起きる。"
+        },
+        {
+          "id": "q6-15",
+          "type": "single_choice",
+          "question": "トランザクションの永続性（Durability）を実現するために必要なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "キャッシュの強化"
+            },
+            {
+              "value": "b",
+              "text": "ログの記録と確実なディスクへの書き込み"
+            },
+            {
+              "value": "c",
+              "text": "排他ロックの短縮"
+            },
+            {
+              "value": "d",
+              "text": "データベースのバックアップを削除"
+            }
+          ],
+          "correct": "b",
+          "explanation": "永続性はトランザクション完了後に障害が起きても結果が失われないようにする特性。"
+        },
+        {
+          "id": "q6-16",
+          "type": "single_choice",
+          "question": "ロック粒度（Granularity）が粗い場合の特徴として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "同時実行性が高くなる"
+            },
+            {
+              "value": "b",
+              "text": "ロック管理が煩雑になる"
+            },
+            {
+              "value": "c",
+              "text": "デッドロックのリスクが高まる"
+            },
+            {
+              "value": "d",
+              "text": "ロックオーバヘッドが低い"
+            }
+          ],
+          "correct": "d",
+          "explanation": "ロック粒度が粗いとロックの数が減り、オーバヘッドは低くなるが同時実行性は下がる。"
+        },
+        {
+          "id": "q6-17",
+          "type": "multiple_choice",
+          "question": "ファントムリードが発生する可能性がある状況として正しいものをすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "同じ条件で2回SELECTを実行したが、件数が異なる"
+            },
+            {
+              "value": "b",
+              "text": "1回目のSELECT後に別トランザクションがデータを追加"
+            },
+            {
+              "value": "c",
+              "text": "トランザクション中にDELETEが実行された"
+            },
+            {
+              "value": "d",
+              "text": "SELECT文がインデックススキャンを使用している"
+            },
+            {
+              "value": "e",
+              "text": "テーブルに行が追加されたがロックされていなかった"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "e"
+          ],
+          "explanation": "ファントムリードは、検索条件に合致する新たな行が他のトランザクションで追加されることで発生する。"
+        },
+        {
+          "id": "q6-18",
+          "type": "multiple_choice",
+          "question": "データベースにおいてスループットを向上させるための一般的な手法をすべて選べ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "ロック粒度の最適化"
+            },
+            {
+              "value": "b",
+              "text": "インデックスの活用"
+            },
+            {
+              "value": "c",
+              "text": "長時間トランザクションの回避"
+            },
+            {
+              "value": "d",
+              "text": "SQLの簡略化"
+            },
+            {
+              "value": "e",
+              "text": "同時ユーザ数の制限撤廃"
+            }
+          ],
+          "correct": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "explanation": "スループット改善には、ロック制御の工夫、インデックス活用、SQLの効率化が有効。"
+        },
+        {
+          "id": "q6-19",
+          "type": "essay",
+          "question": "MVCCの仕組みと、同時実行性確保における利点について300字以内で述べよ。",
+          "correct": "",
+          "explanation": "MVCCは読み取り時にスナップショットを使用することでロックなしで一貫性を保ち、同時実行性を高める。"
+        },
+        {
+          "id": "q6-20",
+          "type": "essay",
+          "question": "トランザクション分離レベルによる影響と選択の指針について、実運用を考慮して300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "分離レベルは整合性と性能のトレードオフがあり、要求要件に応じた適切な設定が重要となる。"
         }
       ]
     }
