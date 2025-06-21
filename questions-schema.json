@@ -50,18 +50,6 @@
       "type": "object",
       "description": "個別の問題",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "問題の一意識別子",
-          "pattern": "^q[0-9]+-[0-9]+$",
-          "examples": ["q1-1", "q2-3", "q5-10"]
-        },
-        "number": {
-          "type": "string",
-          "description": "問題番号の表示文字列",
-          "pattern": "^問題 [0-9]+-[0-9]+$",
-          "examples": ["問題 1-1", "問題 2-3", "問題 5-10"]
-        },
         "type": {
           "type": "string",
           "description": "問題の種類",
@@ -113,7 +101,7 @@
           "minLength": 10
         }
       },
-      "required": ["id", "number", "question", "correct", "explanation"],
+      "required": ["question", "correct", "explanation"],
       "additionalProperties": false,
       "allOf": [
         {
