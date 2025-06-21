@@ -1,0 +1,2639 @@
+{
+  "sections": [
+    {
+      "id": "database-design",
+      "title": "データベース設計",
+      "questions": [
+        {
+          "id": "q1-1",
+          "number": "問題 1-1",
+          "type": "single_choice",
+          "question": "概念データモデルの設計において、エンティティとリレーションシップを表現するために用いられる記法はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "DFD (Data Flow Diagram)"
+            },
+            {
+              "value": "b",
+              "text": "E-R図 (Entity-Relationship Diagram)"
+            },
+            {
+              "value": "c",
+              "text": "UMLクラス図"
+            },
+            {
+              "value": "d",
+              "text": "フローチャート"
+            }
+          ],
+          "correct": "b",
+          "explanation": "E-R図（Entity-Relationship Diagram）は、概念データモデルの設計において、エンティティ（実体）とそれらの間のリレーションシップ（関係）を視覚的に表現するための標準的な記法です。"
+        },
+        {
+          "id": "q1-2",
+          "number": "問題 1-2",
+          "type": "multiple_choice",
+          "question": "データベース設計の論理設計段階で行う作業として、適切なものをすべて選択せよ。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "正規化の実施"
+            },
+            {
+              "value": "b",
+              "text": "インデックスの設計"
+            },
+            {
+              "value": "c",
+              "text": "テーブル定義の作成"
+            },
+            {
+              "value": "d",
+              "text": "制約条件の定義"
+            },
+            {
+              "value": "e",
+              "text": "主キーの設定"
+            }
+          ],
+          "correct": [
+            "a",
+            "c",
+            "d",
+            "e"
+          ],
+          "explanation": "論理設計段階では、正規化の実施、テーブル定義の作成、制約条件の定義、主キーの設定を行います。インデックスの設計は物理設計段階で行う作業です。"
+        },
+        {
+          "id": "q1-3",
+          "number": "問題 1-3",
+          "type": "essay",
+          "question": "データベース設計における第1正規形から第3正規形までの正規化プロセスについて、各正規形の条件と正規化の目的を含めて300字以内で説明せよ。",
+          "correct": "",
+          "explanation": "【解答例】第1正規形は、すべての属性が原子値（分割不可能な値）であることが条件。第2正規形は、第1正規形かつ部分関数従属を排除した形。第3正規形は、第2正規形かつ推移関数従属を排除した形。正規化の目的は、データの冗長性を排除し、更新・削除・挿入時の異常を防ぎ、データの整合性を保つこと。段階的に正規化することで、より構造化されたデータベース設計が可能となる。"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 1）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-4",
+          "number": "問題 database-design-4"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 2）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-5",
+          "number": "問題 database-design-5"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 3）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-6",
+          "number": "問題 database-design-6"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 4）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-7",
+          "number": "問題 database-design-7"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 5）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-8",
+          "number": "問題 database-design-8"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 6）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-9",
+          "number": "問題 database-design-9"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 7）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-10",
+          "number": "問題 database-design-10"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 8）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-11",
+          "number": "問題 database-design-11"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 9）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-12",
+          "number": "問題 database-design-12"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 10）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-13",
+          "number": "問題 database-design-13"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 11）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-14",
+          "number": "問題 database-design-14"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 12）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-15",
+          "number": "問題 database-design-15"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 13）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-16",
+          "number": "問題 database-design-16"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（データベース設計 - 14）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "database-design-17",
+          "number": "問題 database-design-17"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（データベース設計 - 記述 1）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "database-design-18",
+          "number": "問題 database-design-18"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（データベース設計 - 記述 2）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "database-design-19",
+          "number": "問題 database-design-19"
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "title": "SQL",
+      "questions": [
+        {
+          "id": "q2-1",
+          "number": "問題 2-1",
+          "question": "次のSQL文で、顧客テーブル（CUSTOMER）から東京都在住の顧客の件数を取得する正しい文はどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "SELECT COUNT(*) FROM CUSTOMER WHERE ADDRESS = '東京都';"
+            },
+            {
+              "value": "b",
+              "text": "SELECT COUNT(ADDRESS) FROM CUSTOMER WHERE ADDRESS LIKE '東京都%';"
+            },
+            {
+              "value": "c",
+              "text": "SELECT SUM(*) FROM CUSTOMER WHERE ADDRESS = '東京都';"
+            },
+            {
+              "value": "d",
+              "text": "SELECT TOTAL(*) FROM CUSTOMER WHERE ADDRESS = '東京都';"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ADDRESS LIKE '東京都%'により、住所が「東京都」で始まる顧客を検索でき、COUNT(ADDRESS)で該当する件数を取得できます。完全一致の場合、区市町村まで含む必要があるため、LIKE演算子が適切です。"
+        },
+        {
+          "id": "q2-2",
+          "number": "問題 2-2",
+          "question": "副問合せ（サブクエリ）の説明として適切なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "複数のテーブルを結合する機能"
+            },
+            {
+              "value": "b",
+              "text": "SQL文の中に記述される別のSQL文"
+            },
+            {
+              "value": "c",
+              "text": "データを並び替える機能"
+            },
+            {
+              "value": "d",
+              "text": "グループ化を行う機能"
+            }
+          ],
+          "correct": "b",
+          "explanation": "副問合せ（サブクエリ）は、SQL文の中に記述される別のSQL文です。外側のクエリの条件として内側のクエリの結果を使用します。"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 1）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-3",
+          "number": "問題 sql-3"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 2）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-4",
+          "number": "問題 sql-4"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 3）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-5",
+          "number": "問題 sql-5"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 4）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-6",
+          "number": "問題 sql-6"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 5）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-7",
+          "number": "問題 sql-7"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 6）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-8",
+          "number": "問題 sql-8"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 7）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-9",
+          "number": "問題 sql-9"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 8）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-10",
+          "number": "問題 sql-10"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 9）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-11",
+          "number": "問題 sql-11"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 10）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-12",
+          "number": "問題 sql-12"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 11）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-13",
+          "number": "問題 sql-13"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 12）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-14",
+          "number": "問題 sql-14"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 13）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-15",
+          "number": "問題 sql-15"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（SQL - 14）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "sql-16",
+          "number": "問題 sql-16"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（SQL - 記述 1）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "sql-17",
+          "number": "問題 sql-17"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（SQL - 記述 2）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "sql-18",
+          "number": "問題 sql-18"
+        }
+      ]
+    },
+    {
+      "id": "normalization",
+      "title": "正規化・データモデリング",
+      "questions": [
+        {
+          "id": "q3-1",
+          "number": "問題 3-1",
+          "question": "第3正規形の条件として正しいものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "すべての属性が原子値である"
+            },
+            {
+              "value": "b",
+              "text": "部分関数従属を除去している"
+            },
+            {
+              "value": "c",
+              "text": "推移関数従属を除去している"
+            },
+            {
+              "value": "d",
+              "text": "多値従属を除去している"
+            }
+          ],
+          "correct": "c",
+          "explanation": "第3正規形は、第2正規形の条件を満たし、かつ推移関数従属を除去した形です。推移関数従属とは、A→B、B→Cのとき、A→Cとなる間接的な従属関係のことです。"
+        },
+        {
+          "id": "q3-2",
+          "number": "問題 3-2",
+          "question": "正規化を行う主な目的として適切でないものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "データの冗長性を排除する"
+            },
+            {
+              "value": "b",
+              "text": "更新異常を防ぐ"
+            },
+            {
+              "value": "c",
+              "text": "検索性能を向上させる"
+            },
+            {
+              "value": "d",
+              "text": "データの整合性を保つ"
+            }
+          ],
+          "correct": "c",
+          "explanation": "正規化は検索性能の向上を主目的としません。むしろ、テーブルが分割されることで結合処理が増え、検索性能が低下する場合があります。主な目的は冗長性排除、異常防止、整合性確保です。"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 1）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-3",
+          "number": "問題 normalization-3"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 2）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-4",
+          "number": "問題 normalization-4"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 3）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-5",
+          "number": "問題 normalization-5"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 4）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-6",
+          "number": "問題 normalization-6"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 5）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-7",
+          "number": "問題 normalization-7"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 6）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-8",
+          "number": "問題 normalization-8"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 7）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-9",
+          "number": "問題 normalization-9"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 8）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-10",
+          "number": "問題 normalization-10"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 9）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-11",
+          "number": "問題 normalization-11"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 10）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-12",
+          "number": "問題 normalization-12"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 11）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-13",
+          "number": "問題 normalization-13"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 12）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-14",
+          "number": "問題 normalization-14"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 13）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-15",
+          "number": "問題 normalization-15"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（正規化・データモデリング - 14）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "normalization-16",
+          "number": "問題 normalization-16"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（正規化・データモデリング - 記述 1）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "normalization-17",
+          "number": "問題 normalization-17"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（正規化・データモデリング - 記述 2）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "normalization-18",
+          "number": "問題 normalization-18"
+        }
+      ]
+    },
+    {
+      "id": "performance",
+      "title": "性能・チューニング",
+      "questions": [
+        {
+          "id": "q4-1",
+          "number": "問題 4-1",
+          "question": "インデックスに関する説明として適切でないものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "検索性能を向上させる"
+            },
+            {
+              "value": "b",
+              "text": "更新処理のオーバーヘッドが発生する"
+            },
+            {
+              "value": "c",
+              "text": "ストレージ容量を消費する"
+            },
+            {
+              "value": "d",
+              "text": "すべての列に作成すべきである"
+            }
+          ],
+          "correct": "d",
+          "explanation": "インデックスはすべての列に作成すべきではありません。頻繁に検索条件として使用される列や結合キーとなる列に選択的に作成することが重要です。"
+        },
+        {
+          "id": "q4-2",
+          "number": "問題 4-2",
+          "question": "実行計画の最適化において、コストベースオプティマイザが使用する情報として適切でないものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "テーブルの行数統計"
+            },
+            {
+              "value": "b",
+              "text": "インデックスの選択度"
+            },
+            {
+              "value": "c",
+              "text": "CPU使用率"
+            },
+            {
+              "value": "d",
+              "text": "データの分布"
+            }
+          ],
+          "correct": "c",
+          "explanation": "コストベースオプティマイザは、統計情報（行数、選択度、データ分布など）を基に実行計画を決定します。CPU使用率は実行時の動的な情報であり、最適化の判断材料としては使用されません。"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 1）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-3",
+          "number": "問題 performance-3"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 2）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-4",
+          "number": "問題 performance-4"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 3）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-5",
+          "number": "問題 performance-5"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 4）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-6",
+          "number": "問題 performance-6"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 5）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-7",
+          "number": "問題 performance-7"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 6）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-8",
+          "number": "問題 performance-8"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 7）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-9",
+          "number": "問題 performance-9"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 8）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-10",
+          "number": "問題 performance-10"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 9）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-11",
+          "number": "問題 performance-11"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 10）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-12",
+          "number": "問題 performance-12"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 11）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-13",
+          "number": "問題 performance-13"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 12）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-14",
+          "number": "問題 performance-14"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 13）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-15",
+          "number": "問題 performance-15"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（性能・チューニング - 14）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "performance-16",
+          "number": "問題 performance-16"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（性能・チューニング - 記述 1）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "performance-17",
+          "number": "問題 performance-17"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（性能・チューニング - 記述 2）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "performance-18",
+          "number": "問題 performance-18"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "title": "セキュリティ",
+      "questions": [
+        {
+          "id": "q5-1",
+          "number": "問題 5-1",
+          "question": "SQLインジェクション攻撃を防ぐ対策として最も効果的なものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "入力値の長さチェック"
+            },
+            {
+              "value": "b",
+              "text": "プリペアードステートメントの使用"
+            },
+            {
+              "value": "c",
+              "text": "データベースの暗号化"
+            },
+            {
+              "value": "d",
+              "text": "アクセスログの監視"
+            }
+          ],
+          "correct": "b",
+          "explanation": "プリペアードステートメント（パラメータ化クエリ）の使用により、SQLとパラメータを分離し、悪意あるSQL文の実行を防ぐことができます。これがSQLインジェクション対策として最も効果的です。"
+        },
+        {
+          "id": "q5-2",
+          "number": "問題 5-2",
+          "question": "データベースアクセス制御における「最小権限の原則」とは何か。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "必要最小限のユーザーのみアクセスを許可する"
+            },
+            {
+              "value": "b",
+              "text": "ユーザーには業務に必要な最小限の権限のみを付与する"
+            },
+            {
+              "value": "c",
+              "text": "パスワードは最小文字数で設定する"
+            },
+            {
+              "value": "d",
+              "text": "データベースサイズを最小限に抑える"
+            }
+          ],
+          "correct": "b",
+          "explanation": "最小権限の原則とは、ユーザーには業務を遂行するために必要な最小限の権限のみを付与するセキュリティ原則です。不要な権限を与えることでセキュリティリスクが高まることを防ぎます。"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 1）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-3",
+          "number": "問題 security-3"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 2）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-4",
+          "number": "問題 security-4"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 3）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-5",
+          "number": "問題 security-5"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 4）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-6",
+          "number": "問題 security-6"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 5）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-7",
+          "number": "問題 security-7"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 6）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-8",
+          "number": "問題 security-8"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 7）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-9",
+          "number": "問題 security-9"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 8）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-10",
+          "number": "問題 security-10"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 9）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-11",
+          "number": "問題 security-11"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 10）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-12",
+          "number": "問題 security-12"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 11）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-13",
+          "number": "問題 security-13"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 12）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-14",
+          "number": "問題 security-14"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 13）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-15",
+          "number": "問題 security-15"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（セキュリティ - 14）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "security-16",
+          "number": "問題 security-16"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（セキュリティ - 記述 1）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "security-17",
+          "number": "問題 security-17"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（セキュリティ - 記述 2）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "security-18",
+          "number": "問題 security-18"
+        }
+      ]
+    },
+    {
+      "id": "transaction",
+      "title": "トランザクション・同期処理",
+      "questions": [
+        {
+          "id": "q6-1",
+          "number": "問題 6-1",
+          "question": "ACID特性の「C」が表すものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "Atomicity（原子性）"
+            },
+            {
+              "value": "b",
+              "text": "Consistency（一貫性）"
+            },
+            {
+              "value": "c",
+              "text": "Isolation（独立性）"
+            },
+            {
+              "value": "d",
+              "text": "Durability（持続性）"
+            }
+          ],
+          "correct": "b",
+          "explanation": "ACID特性の「C」はConsistency（一貫性）を表します。これは、トランザクション実行前後でデータベースの整合性制約が保たれることを意味します。"
+        },
+        {
+          "id": "q6-2",
+          "number": "問題 6-2",
+          "question": "デッドロックが発生する条件として適切でないものはどれか。",
+          "choices": [
+            {
+              "value": "a",
+              "text": "複数のトランザクションが同じリソースを要求する"
+            },
+            {
+              "value": "b",
+              "text": "リソースの獲得順序が異なる"
+            },
+            {
+              "value": "c",
+              "text": "トランザクションが長時間実行される"
+            },
+            {
+              "value": "d",
+              "text": "待機状態が循環する"
+            }
+          ],
+          "correct": "c",
+          "explanation": "トランザクションの実行時間の長さは、デッドロック発生の直接的な条件ではありません。デッドロックは、複数のトランザクションが互いに相手の持つリソースを待ち、循環待機状態になることで発生します。"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 1）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-3",
+          "number": "問題 transaction-3"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 2）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-4",
+          "number": "問題 transaction-4"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 3）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-5",
+          "number": "問題 transaction-5"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 4）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-6",
+          "number": "問題 transaction-6"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 5）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-7",
+          "number": "問題 transaction-7"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 6）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-8",
+          "number": "問題 transaction-8"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 7）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-9",
+          "number": "問題 transaction-9"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 8）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-10",
+          "number": "問題 transaction-10"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 9）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-11",
+          "number": "問題 transaction-11"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 10）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-12",
+          "number": "問題 transaction-12"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 11）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-13",
+          "number": "問題 transaction-13"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 12）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-14",
+          "number": "問題 transaction-14"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 13）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-15",
+          "number": "問題 transaction-15"
+        },
+        {
+          "type": "single_choice",
+          "question": "【応用情報/DB試験】適切なものを選びなさい。（トランザクション・同期処理 - 14）",
+          "choices": [
+            {
+              "value": "a",
+              "text": "選択肢A"
+            },
+            {
+              "value": "b",
+              "text": "選択肢B"
+            },
+            {
+              "value": "c",
+              "text": "選択肢C"
+            },
+            {
+              "value": "d",
+              "text": "選択肢D"
+            }
+          ],
+          "correct": "a",
+          "explanation": "正解は選択肢Aです。",
+          "id": "transaction-16",
+          "number": "問題 transaction-16"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（トランザクション・同期処理 - 記述 1）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "transaction-17",
+          "number": "問題 transaction-17"
+        },
+        {
+          "type": "essay",
+          "question": "【応用情報/DB試験】このテーマについて300字以内で説明してください。（トランザクション・同期処理 - 記述 2）",
+          "correct": "",
+          "explanation": "これは模範解答の一例です。",
+          "id": "transaction-18",
+          "number": "問題 transaction-18"
+        }
+      ]
+    }
+  ]
+}

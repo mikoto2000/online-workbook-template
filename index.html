@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>データベーススペシャリスト試験 問題集</title>
+    <style>
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c5282;
+            text-align: center;
+            border-bottom: 3px solid #2c5282;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+        .section h2 {
+            color: #2d3748;
+            margin-top: 0;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f7fafc;
+            border-left: 4px solid #4299e1;
+        }
+        .question-number {
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .choices {
+            margin: 10px 0;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .choice {
+            margin: 0;
+            padding: 12px 15px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        .choice:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .choice:active {
+            transform: translateY(0);
+        }
+        .choice input {
+            margin-right: 12px;
+            width: 16px;
+            height: 16px;
+        }
+        .choice-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+        .answer {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 4px;
+            display: none;
+        }
+        .answer.show {
+            display: block;
+        }
+        .show-answer-btn {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .show-answer-btn:hover {
+            background: #3182ce;
+        }
+        .nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: #4299e1;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .nav a:hover {
+            background: #3182ce;
+        }
+        .essay-input {
+            width: 100%;
+            min-height: 150px;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+        }
+        .essay-input:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+        .question-type {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #2d3748;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .multiple-choice .question-type {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        .essay .question-type {
+            background: #d6f5d6;
+            color: #276749;
+        }
+        .disclaimer {
+            background: #fef5e7;
+            border: 1px solid #f6e05e;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #744210;
+        }
+        .disclaimer .disclaimer-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #975a16;
+        }
+        .disclaimer ul {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+        .disclaimer li {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>データベーススペシャリスト試験 問題集</h1>
+        
+        <div class="disclaimer">
+            <div class="disclaimer-title">⚠️ 免責事項</div>
+            <ul>
+                <li>この問題集は学習支援を目的とした独自作成の問題です</li>
+                <li><strong>回答の正確性を保証するものではありません</strong></li>
+                <li>実際の試験内容や出題傾向と異なる場合があります</li>
+                <li>試験の合格を保証するものではありません</li>
+                <li>利用者の責任において使用してください</li>
+            </ul>
+        </div>
+        
+        <div class="nav" id="nav-menu">
+            <!-- ナビゲーションはJavaScriptで動的生成 -->
+        </div>
+
+        <div id="content">
+            <!-- 問題はJavaScriptで動的生成 -->
+        </div>
+    </div>
+
+    <script>
+        let questionsData = null;
+
+        // JSONファイルから問題データを読み込み
+        async function loadQuestions() {
+            try {
+                const response = await fetch('questions.json');
+                questionsData = await response.json();
+                renderContent();
+            } catch (error) {
+                console.error('問題データの読み込みに失敗しました:', error);
+                document.getElementById('content').innerHTML = '<p>問題データの読み込みに失敗しました。</p>';
+            }
+        }
+
+        // ナビゲーションとコンテンツを生成
+        function renderContent() {
+            renderNavigation();
+            renderSections();
+        }
+
+        // ナビゲーションメニューを生成
+        function renderNavigation() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.innerHTML = questionsData.sections.map(section => 
+                `<a href="#${section.id}">${section.title}</a>`
+            ).join('');
+        }
+
+        // セクションと問題を生成
+        function renderSections() {
+            const content = document.getElementById('content');
+            content.innerHTML = questionsData.sections.map((section, sectionIndex) => {
+                const sectionHtml = `
+                    <div class="section" id="${section.id}">
+                        <h2>${sectionIndex + 1}. ${section.title}</h2>
+                        ${section.questions.map(question => renderQuestion(question)).join('')}
+                    </div>
+                `;
+                return sectionHtml;
+            }).join('');
+        }
+
+        // 個別の問題を生成
+        function renderQuestion(question) {
+            const choiceLabels = ['ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク'];
+            const questionType = question.type || 'single_choice';
+            
+            let typeLabel = '';
+            switch(questionType) {
+                case 'single_choice':
+                    typeLabel = '単一選択';
+                    break;
+                case 'multiple_choice':
+                    typeLabel = '複数選択';
+                    break;
+                case 'essay':
+                    typeLabel = '記述式';
+                    break;
+            }
+
+            let questionContent = '';
+            
+            if (questionType === 'essay') {
+                questionContent = `
+                    <div class="question essay">
+                        <div class="question-number">${question.number}<span class="question-type">${typeLabel}</span></div>
+                        <p>${question.question}</p>
+                        <textarea class="essay-input" placeholder="こちらに回答を記述してください..."></textarea>
+                        <button class="show-answer-btn" onclick="toggleAnswer('answer-${question.id}')">解答例を表示</button>
+                        <div class="answer" id="answer-${question.id}">
+                            <strong>解答例：</strong><br>
+                            ${question.explanation}
+                        </div>
+                    </div>
+                `;
+            } else {
+                const inputType = questionType === 'multiple_choice' ? 'checkbox' : 'radio';
+                const questionClass = questionType === 'multiple_choice' ? 'question multiple-choice' : 'question';
+                
+                questionContent = `
+                    <div class="${questionClass}">
+                        <div class="question-number">${question.number}<span class="question-type">${typeLabel}</span></div>
+                        <p>${question.question}</p>
+                        <div class="choices">
+                            ${question.choices.map((choice, index) => `
+                                <label class="choice">
+                                    <input type="${inputType}" name="${question.id}" value="${choice.value}">
+                                    <span class="choice-text">${choiceLabels[index]}. ${choice.text}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                        <button class="show-answer-btn" onclick="toggleAnswer('answer-${question.id}')">解答を表示</button>
+                        <div class="answer" id="answer-${question.id}">
+                            <strong>正解：${formatCorrectAnswer(question.correct)}</strong><br>
+                            ${question.explanation}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            return questionContent;
+        }
+        
+        // 正解の表示形式を整える
+        function formatCorrectAnswer(correct) {
+            if (Array.isArray(correct)) {
+                return correct.map(c => c.toUpperCase()).join(', ');
+            }
+            return correct.toUpperCase();
+        }
+
+        // 解答表示の切り替え
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.classList.toggle('show');
+        }
+
+        // スムーズスクロール
+        function setupSmoothScroll() {
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('a[href^="#"]')) {
+                    e.preventDefault();
+                    const target = document.querySelector(e.target.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
+
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestions();
+            setupSmoothScroll();
+        });
+        
+        // 記述式問題の文字数カウント機能（オプション）
+        function setupEssayCounters() {
+            document.querySelectorAll('.essay-input').forEach(textarea => {
+                const counter = document.createElement('div');
+                counter.style.textAlign = 'right';
+                counter.style.fontSize = '12px';
+                counter.style.color = '#666';
+                counter.style.marginTop = '5px';
+                textarea.parentNode.insertBefore(counter, textarea.nextSibling);
+                
+                function updateCounter() {
+                    const count = textarea.value.length;
+                    counter.textContent = `${count}文字`;
+                }
+                
+                textarea.addEventListener('input', updateCounter);
+                updateCounter();
+            });
+        }
+        
+        // 問題レンダリング後に文字数カウンターを設定
+        function renderSections() {
+            const content = document.getElementById('content');
+            content.innerHTML = questionsData.sections.map((section, sectionIndex) => {
+                const sectionHtml = `
+                    <div class="section" id="${section.id}">
+                        <h2>${sectionIndex + 1}. ${section.title}</h2>
+                        ${section.questions.map(question => renderQuestion(question)).join('')}
+                    </div>
+                `;
+                return sectionHtml;
+            }).join('');
+            
+            // 記述式問題の文字数カウンターを設定
+            setTimeout(setupEssayCounters, 100);
+        }
+    </script>
+</body>
+</html>
