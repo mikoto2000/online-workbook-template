@@ -202,6 +202,22 @@
         .shuffle-btn.active {
             background: #17a2b8;
         }
+        .json-selector {
+            margin: 0 10px;
+        }
+        .json-selector select {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .json-selector label {
+            margin-right: 8px;
+            font-weight: bold;
+            color: #495057;
+        }
         .save-status {
             display: inline-block;
             margin-left: 15px;
@@ -287,6 +303,12 @@
         
         <div class="control-buttons">
             <h3>🔧 操作メニュー</h3>
+            <div class="json-selector">
+                <label for="json-select">📄 問題セット:</label>
+                <select id="json-select" onchange="changeQuestionSet()">
+                    <option value="questions.json">データベーススペシャリスト問題集</option>
+                </select>
+            </div>
             <button class="clear-btn" onclick="clearAllAnswers()" title="すべての回答をクリアします">🗑️ 回答をすべてクリア</button>
             <button class="shuffle-btn" id="shuffle-btn" onclick="toggleShuffle()" title="選択肢の順番をランダムに並べ替えます">🔀 選択肢シャッフル</button>
             <span class="save-status" id="save-status">💾 回答は自動保存されます</span>
@@ -332,18 +354,42 @@
     <script>
         let questionsData = null;
         let isShuffleEnabled = false;
+        let currentJsonFile = 'questions.json';
         const SHUFFLE_KEY = 'db-specialist-shuffle';
+        const JSON_FILE_KEY = 'db-specialist-json-file';
+        
+        // 利用可能なJSONファイルの設定
+        const availableJsonFiles = [
+            { value: 'questions.json', label: 'データベーススペシャリスト問題集' },
+        ];
 
         // JSONファイルから問題データを読み込み
-        async function loadQuestions() {
+        async function loadQuestions(jsonFile = null) {
             try {
-                const response = await fetch('questions.json');
+                const fileToLoad = jsonFile || currentJsonFile;
+                const response = await fetch(fileToLoad);
+                
+                if (!response.ok) {
+                    throw new Error(`ファイルが見つかりません: ${fileToLoad}`);
+                }
+                
                 questionsData = await response.json();
+                currentJsonFile = fileToLoad;
+                saveJsonFileSelection();
                 processQuestionData();
                 renderContent();
+                
+                console.log(`問題データを読み込みました: ${fileToLoad}`);
             } catch (error) {
                 console.error('問題データの読み込みに失敗しました:', error);
-                document.getElementById('content').innerHTML = '<p>問題データの読み込みに失敗しました。</p>';
+                document.getElementById('content').innerHTML = `
+                    <div style="text-align: center; padding: 40px;">
+                        <h3>❌ 問題データの読み込みに失敗しました</h3>
+                        <p>ファイル: ${jsonFile || currentJsonFile}</p>
+                        <p>エラー: ${error.message}</p>
+                        <button onclick="loadQuestions('questions.json')" style="padding: 10px 20px; margin-top: 10px;">データベーススペシャリスト問題集に戻る</button>
+                    </div>
+                `;
             }
         }
 
@@ -438,6 +484,7 @@
         // ナビゲーションとコンテンツを生成
         function renderContent() {
             updateTitle();
+            initializeJsonSelector();
             loadShuffleState();
             shuffleChoices();
             renderNavigation();
@@ -751,12 +798,6 @@
             });
         }
         
-        // ページ読み込み時の初期化
-        document.addEventListener('DOMContentLoaded', function() {
-            loadQuestions();
-            setupSmoothScroll();
-            setupAnswerListeners();
-        });
         
         // 記述式問題の文字数カウント機能（オプション）
         function setupEssayCounters() {
@@ -912,6 +953,70 @@
             
             console.log('シャッフル状態:', isShuffleEnabled ? 'ON' : 'OFF');
         }
+
+        // JSONセレクターを初期化
+        function initializeJsonSelector() {
+            const selector = document.getElementById('json-select');
+            if (!selector) return;
+            
+            // オプションをクリア
+            selector.innerHTML = '';
+            
+            // 利用可能なファイルのオプションを追加
+            availableJsonFiles.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file.value;
+                option.textContent = file.label;
+                option.selected = file.value === currentJsonFile;
+                selector.appendChild(option);
+            });
+        }
+
+        // JSON選択を保存
+        function saveJsonFileSelection() {
+            localStorage.setItem(JSON_FILE_KEY, currentJsonFile);
+        }
+
+        // JSON選択を読み込み
+        function loadJsonFileSelection() {
+            const saved = localStorage.getItem(JSON_FILE_KEY);
+            if (saved && availableJsonFiles.some(file => file.value === saved)) {
+                currentJsonFile = saved;
+            }
+        }
+
+        // 問題セットを変更
+        function changeQuestionSet() {
+            const selector = document.getElementById('json-select');
+            const selectedFile = selector.value;
+            
+            if (selectedFile !== currentJsonFile) {
+                // 回答をクリアするか確認
+                const hasAnswers = Object.keys(getStoredAnswers()).length > 0;
+                if (hasAnswers) {
+                    const confirmed = confirm('問題セットを変更すると、現在の回答がクリアされます。\n\n続行しますか？');
+                    if (!confirmed) {
+                        // 元の選択に戻す
+                        selector.value = currentJsonFile;
+                        return;
+                    }
+                    
+                    // 回答をクリア
+                    localStorage.removeItem(STORAGE_KEY);
+                }
+                
+                // 新しいJSONファイルを読み込み
+                loadQuestions(selectedFile);
+            }
+        }
+
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJsonFileSelection();
+            loadQuestions();
+            setupSmoothScroll();
+            setupAnswerListeners();
+        });
     </script>
 </body>
 </html>
