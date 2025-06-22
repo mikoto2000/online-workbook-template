@@ -354,13 +354,14 @@
     <script>
         let questionsData = null;
         let isShuffleEnabled = false;
-        let currentJsonFile = 'questions.json';
+        let currentJsonFile = 'questions_am.json';
         const SHUFFLE_KEY = 'db-specialist-shuffle';
         const JSON_FILE_KEY = 'db-specialist-json-file';
         
         // 利用可能なJSONファイルの設定
         const availableJsonFiles = [
-            { value: 'questions.json', label: 'データベーススペシャリスト問題集' },
+            { value: 'questions_am.json', label: '午前問題集' },
+            { value: 'questions_db.json', label: 'データベーススペシャリスト問題集' }
         ];
 
         // JSONファイルから問題データを読み込み
@@ -387,7 +388,7 @@
                         <h3>❌ 問題データの読み込みに失敗しました</h3>
                         <p>ファイル: ${jsonFile || currentJsonFile}</p>
                         <p>エラー: ${error.message}</p>
-                        <button onclick="loadQuestions('questions.json')" style="padding: 10px 20px; margin-top: 10px;">データベーススペシャリスト問題集に戻る</button>
+                        <button onclick="loadQuestions('questions_am.json')" style="padding: 10px 20px; margin-top: 10px;">午前問題集に戻る</button>
                     </div>
                 `;
             }
